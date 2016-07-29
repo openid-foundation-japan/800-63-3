@@ -52,18 +52,30 @@ guidance provides agencies with criteria for determining the level of
 assurance required for specific digital transactions
 and systems, based on the risks and their likelihood of occurrence. -->
 
-SP 800-63 is organized as a family of documents as follows:
+SP 800-63 は以下のドキュメント群からなる.
 
-- SP 800-63A *Enrollment and Identity Proofing* - Deals with the processes by which a credential, and authenticator(s) associated with that credential can be bound to a specific individual. This typically happens when that individual is enrolled in an identity system, through the identity proofing process.
+<!-- SP 800-63 is organized as a family of documents as follows: -->
 
-- SP 800-63B *Authentication and Lifecycle Management* - provides guidance on the selection, use, and management of authenticators (formerly called *tokens*) to authenticate a remote subscriber to an identity system at specified authenticator assurance levels.
+- SP 800-63A *Enrollment and Identity Proofing* - Credential, および Credential に関連付けられた Authenticator を, 特定の個人に紐付けるプロセスを扱う. このプロセスは一般的に Identity システムに個人が登録される際に, Identity Proofing プロセスを通じて行われる.
 
-- SP 800-63C *Federation and Assertions* - Provides guidance on the use of assertions to convey the results of authentication processes to a relying party.
+<!-- - SP 800-63A *Enrollment and Identity Proofing* - Deals with the processes by which a credential, and authenticator(s) associated with that credential can be bound to a specific individual. This typically happens when that individual is enrolled in an identity system, through the identity proofing process. -->
 
-It is anticipated that SP 800-63A, SP 800-63B, and SP 800-63C will be revised asynchronously with each other and with this document. The latest revision of each should be used for guidance.
+- SP 800-63B *Authentication and Lifecycle Management* - 情報システムに対して Remote の Subscriber を特定の Authenticator Assurance Level で認証する際の, Authenticator (以前は *token* と呼ばれていた) の選択, 利用, 管理に関するガイダンスを提供する.
 
-OMB guidance outlines a five-step process by which agencies should meet
-their authentication assurance requirements:
+<!-- - SP 800-63B *Authentication and Lifecycle Management* - provides guidance on the selection, use, and management of authenticators (formerly called *tokens*) to authenticate a remote subscriber to an identity system at specified authenticator assurance levels. -->
+
+- SP 800-63C *Federation and Assertions* - Authentication Process の結果を Relying Party に伝搬する際の Assertion の利用に関するガイダンスを提供する.
+
+<!-- - SP 800-63C *Federation and Assertions* - Provides guidance on the use of assertions to convey the results of authentication processes to a relying party. -->
+
+SP 800-63A, SP 800-63B, SP 800-63C は今後非同期に改定されることが予想されるが, 各々の最新リビジョンをガイダンスとして用いることとする.
+
+<!-- It is anticipated that SP 800-63A, SP 800-63B, and SP 800-63C will be revised asynchronously with each other and with this document. The latest revision of each should be used for guidance. -->
+
+OMB ガイダンスは政府機関が Authentication Assurance 要件を満たすために以下の5つのステップからなるプロセスを用いるよう述べている.
+
+<!-- OMB guidance outlines a five-step process by which agencies should meet
+their authentication assurance requirements: -->
 
 1.  *Conduct a risk assessment of the government system* – No specific
     risk assessment methodology is prescribed for this purpose;
