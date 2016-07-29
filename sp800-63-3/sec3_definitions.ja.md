@@ -316,40 +316,81 @@ RA は, CSP の一部であることもあれば, CSP から独立した主体�
 <!-- A trusted entity that establishes and vouches for the identity or attributes of a subscriber to a CSP. The RA may be an integral part of a CSP, or it may be independent of a CSP, but it has a relationship to the CSP(s). -->
 
 #### Relying Party (RP)
-An entity that relies upon the subscriber's authenticator(s) and credentials or a verifier's assertion of a claimant’s identity, typically to process a transaction or grant access to information or a system.
+
+Subscriber の Authenticator および Credential, Verifier の Claimant Identity に関する Assertion を信頼して, トランザクションを処理したり情報やシステムへのアクセスを許可したりする主体.
+
+<!-- An entity that relies upon the subscriber's authenticator(s) and credentials or a verifier's assertion of a claimant’s identity, typically to process a transaction or grant access to information or a system. -->
 
 #### Remote
-(*As in remote authentication or remote transaction*) An information exchange between network-connected devices where the information cannot be reliably protected end-to-end by a single organization’s security controls.
 
-Note: Any information exchange across the Internet is considered remote.
+(*Remote Authentication や Remote Transaction といったコンテキストで*) 単一組織によるセキュリティ対策のみでは End-to-End での確実な保護が期待できないような状況下での, ネットワーク接続されたデバイス間の情報交換.
+
+<!-- (*As in remote authentication or remote transaction*) An information exchange between network-connected devices where the information cannot be reliably protected end-to-end by a single organization’s security controls. -->
+
+注) Internet を介した情報交換はすべて Remote とみなされる.
+
+<!-- Note: Any information exchange across the Internet is considered remote. -->
 
 #### Risk Assessment
-The process of identifying the risks to system security and determining the probability of occurrence, the resulting impact, and additional safeguards that would mitigate this impact. Part of Risk Management and synonymous with Risk Analysis.
+
+システムセキュリティに対するリスクを特定した上で, その発生確率やもたらされる影響を判定し, その影響を軽減する追加の保護策を決定していくプロセス.
+Risk Assessment は Risk Management の一部であり, Risk Analysis と同義である.
+
+<!-- The process of identifying the risks to system security and determining the probability of occurrence, the resulting impact, and additional safeguards that would mitigate this impact. Part of Risk Management and synonymous with Risk Analysis. -->
 
 #### Shared Secret
-A secret used in authentication that is known to the claimant and the verifier.
+
+Claimant と Verifier が知っている, Authentication で使われる鍵.
+
+<!-- A secret used in authentication that is known to the claimant and the verifier. -->
 
 #### Special Publication (SP)
-A type of publication issued by NIST. Specifically, the Special Publication 800-series reports on the Information Technology Laboratory's research, guidelines, and outreach efforts in computer security, and its collaborative activities with industry, government, and academic organizations.
+
+NIST が発行する出版物の一形態.
+特に Special Publication 800 シリーズは, Information Technology Laboratory による研究活動, ガイドライン, コンピュターセキュリティ分野における公共福祉のための支援活動, 民間・政府・学術組織との協調的な活動などに関するレポートとなっている.
+
+<!-- A type of publication issued by NIST. Specifically, the Special Publication 800-series reports on the Information Technology Laboratory's research, guidelines, and outreach efforts in computer security, and its collaborative activities with industry, government, and academic organizations. -->
 
 #### Subscriber
-A party who has received a credential or authenticator from a CSP.
+
+CSP から Credential や Authenticator を受け取る主体.
+
+<!-- A party who has received a credential or authenticator from a CSP. -->
 
 #### Symmetric Key
-A cryptographic key that is used to perform both the cryptographic operation and its inverse, for example to encrypt and decrypt, or create a message authentication code and to verify the code.
+
+暗号化と復号, メッセージ認証コードの生成と検証などの, 対となる暗号論的オペレーションの両方で用いられる暗号論的な鍵.
+
+<!-- A cryptographic key that is used to perform both the cryptographic operation and its inverse, for example to encrypt and decrypt, or create a message authentication code and to verify the code. -->
 
 #### Token
-See *Authenticator*.
+
+*Authenticator* の定義を参照のこと.
+
+<!-- See *Authenticator*. -->
 
 #### Unverified Name
-A subscriber name that is not verified as meaningful by identity proofing.
+
+Identity Proofing により検証されていない Subscriber の名前.
+
+<!-- A subscriber name that is not verified as meaningful by identity proofing. -->
 
 #### Valid
-In reference to an ID, the quality of not being expired or revoked.
+
+ある ID (身分証明書) について, それが期限切れや失効していないこと.
+
+<!-- In reference to an ID, the quality of not being expired or revoked. -->
 
 #### Verified Name
-A subscriber name that has been verified by identity proofing.
+
+Identity Proofing により検証された Subscriber の名前.
+
+<!-- A subscriber name that has been verified by identity proofing. -->
 
 #### Verifier
-An entity that verifies the claimant’s identity by verifying the claimant’s possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) and identity and check their status.
 
+Claimant の Identity を検証する主体.
+Claimant Identity の検証は, Authentication Protocol により Claimant が1つ以上の Authenticator を所持・管理していることを検証することで行われる.
+Verifier は Authenticator と Identity を紐付ける Credential を確認し, それらの状態を確認する必要があることもある.
+
+<!-- An entity that verifies the claimant’s identity by verifying the claimant’s possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) and identity and check their status. -->
