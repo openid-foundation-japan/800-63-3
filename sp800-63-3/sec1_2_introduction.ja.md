@@ -77,24 +77,31 @@ OMB ガイダンスは政府機関が Authentication Assurance 要件を満た�
 <!-- OMB guidance outlines a five-step process by which agencies should meet
 their authentication assurance requirements: -->
 
-1.  *Conduct a risk assessment of the government system* – No specific
+1.  *Conduct a risk assessment of the government system* – 特別なリスクアセスメントの手法が規定されているわけではないが, NIST Special Publication (SP) 800-30 [[SP 800-30]](#SP800-30) はリスクアセスメントとリスク軽減策のための一般的なプロセスを提示している.
+また NIST Special Publication (SP) 800-37 Revision 1 [[SP 800-37]](#SP800-37) は, 組織全体に渡る情報セキュリティ対策の一環として, 情報システムに対するセキュリティ管理策の選択や利用可能な標準仕様に関するガイドラインを提示している.
+本ガイダンスは情報システムにおける処理に関与する組織や個人に対するリスクの特定の一助となるであろう.
+<!-- 1.  *Conduct a risk assessment of the government system* – No specific
     risk assessment methodology is prescribed for this purpose;
     however, NIST Special
     Publication (SP) 800-30 [[SP 800-30]](#SP800-30) offers a general
-    process for risk assessment and risk mitigation, and NIST Special Publication (SP) 800-37 Revision 1 [[SP 800-37]](#SP800-37) provides guidelines on the selection and specification of security controls for an information system as part of an organization-wide information security program. This guidance supports the identification of risk to the organization or to individuals associated with the operation of an information system.
+    process for risk assessment and risk mitigation, and NIST Special Publication (SP) 800-37 Revision 1 [[SP 800-37]](#SP800-37) provides guidelines on the selection and specification of security controls for an information system as part of an organization-wide information security program. This guidance supports the identification of risk to the organization or to individuals associated with the operation of an information system. -->
 
-2.  *Map identified risks to the appropriate assurance level* – Section
+2.  *Map identified risks to the appropriate assurance level* – OMB M-04-04 の Section 2 は各機関がリスクに見合った Assurance Level のマッピングを行うために必要なガイダンスを提供している.
+<!-- 2.  *Map identified risks to the appropriate assurance level* – Section
     2.2 of OMB M-04-04 provides the guidance necessary for agencies to
-    perform this mapping.
+    perform this mapping. -->
 
-3.  *Select technology based on digital authentication technical guidance* –
+3.  *Select technology based on digital authentication technical guidance* – 適切な Assurance Level を決定したら, OMB ガイダンスに従い各機関は本ドキュメント群が指定する技術要件に見合う技術を選択すべきである.
+機関によっては既存の Digital Authentication 技術を所有しているものもあるであろう.
+その場合, 各機関は既存技術が本ドキュメント群が指定する要件に適合するか検証を行うべきである.
+<!-- 3.  *Select technology based on digital authentication technical guidance* –
     After the appropriate assurance level has been determined, OMB
     guidance states that agencies should select technologies that meet
     the corresponding technical requirements, as specified by
     this document suite. Some agencies may possess existing
     digital authentication technology. Agencies should verify that any
     existing technology meets the requirements specified in
-    this document suite.
+    this document suite. -->
 
 4.  *Validate that the implemented system has met the required assurance
     level* – As some implementations may create or compound particular
