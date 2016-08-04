@@ -104,6 +104,10 @@ their authentication assurance requirements: -->
     this document suite. -->
 
 4.  *Validate that the implemented system has met the required assurance
+    level* – 実装上の問題によりその実装特有のリスクを生み出す可能性もあることから, 各機関は当該システムがユーザーと当該機関との間の一連のプロセスに渡って要求される Assurance Level を満たしているかどうか, 最終確認を行うべきである.
+    NIST SP 800-53A [[SP 800-53A]](#SP800-53A) はこの検証プロセスにおける実装済システムのアセスメントに関するガイドラインを提供している.
+    この検証は NIST SP 800-37, Revision 1 [[SP 800-37]](#SP800-37) に記述されている Security Authorization プロセスの一環として行われるべきである.
+<!-- 4.  *Validate that the implemented system has met the required assurance
     level* – As some implementations may create or compound particular
     risks, agencies should conduct a final validation to confirm that
     the system achieves the required assurance level for the
@@ -111,9 +115,13 @@ their authentication assurance requirements: -->
     provides guidelines for the assessment of the implemented system
     during the validation process. Validation should be performed as
     part of a security authorization process as described in NIST SP
-    800-37, Revision 1 [[SP 800-37]](#SP800-37).
+    800-37, Revision 1 [[SP 800-37]](#SP800-37). -->
 
 5.  *Periodically reassess the information system to determine
+    technology refresh requirements* – 各機関は情報システムに関する定期的な再アセスメント行い, Identity Authentication に関する要件が引き続き満たされているかを確認すべきである.
+    NIST SP 800-37, Revision 1 [[SP 800-37]](#SP800-37) は, 定期的な再アセスメントに関する頻度, 深さ, 広さについてのガイドラインを提供している.
+    また, 最初の検証プロセス同様, セキュリティアセスメントに関しては SP 800-53A [[SP 800-53A]](#SP800-53A) に示されたアセスメントガイドラインに従うこと.
+<!-- 5.  *Periodically reassess the information system to determine
     technology refresh requirements* – The agency shall periodically
     reassess the information system to ensure that the identity
     authentication requirements continue to be satisfied. NIST SP
@@ -121,32 +129,55 @@ their authentication assurance requirements: -->
     the frequency, depth and breadth of periodic reassessments. As with
     the initial validation process, agencies should follow the
     assessment guidelines specified in SP 800-53A [[SP
-    800-53A]](#SP800-53A) for conducting the security assessment.
+    800-53A]](#SP800-53A) for conducting the security assessment. -->
 
-This family of documents provides guidelines for implementing the third step of the
+本ドキュメント群は上記プロセスの Step 3 の実装に対するガイドラインを提供する.
+特に本ドキュメントは OMB M-04-04 が定義する4段階の Level of Assurance を対応する Authenticator Assurance Level および Identity Assurance Level にマッピングしている.
+また本ドキュメント群の他のドキュメントは, 下記のようなエリアに関する Identity Assurance および Authenticator Assurance 固有の技術要件に関して言及している.
+
+<!-- This family of documents provides guidelines for implementing the third step of the
 above process. In particular, this document maps the four (4) Levels of Assurance defined in OMB M-04-04 into corresponding authenticator assurance and identity assurance levels. Other documents in the family state specific technical
 requirements for identity assurance and authenticator assurance in the following
-areas:
+areas: -->
 
--   Identity proofing and registration of applicants (covered in SP 800-63A)
+- Identity Proofing および Applicant の登録 (SP 800-63A)
 
--   Credential lifecycle and management mechanisms (covered in SP 800-63A)
+<!-- -   Identity proofing and registration of applicants (covered in SP 800-63A) -->
 
--   Authenticators (typically a cryptographic key or password) for
-    authentication (covered in SP 800-63B)
+- Credential Lifecycle および Credential Management 方式 (SP 800-63A)
 
--	Authenticator lifecycle and management mechanisms (covered in SP 800-63B)
+<!-- -   Credential lifecycle and management mechanisms (covered in SP 800-63A) -->
 
--   Protocols used to support the authentication mechanism between the
-    claimant and the verifier (covered in SP 800-63B)
+- 認証に用いる Authenticators (一般には暗号鍵やパスワードなど) (SP 800-63B)
 
--   Assertion mechanisms used to communicate the results of a remote
+<!-- -   Authenticators (typically a cryptographic key or password) for
+    authentication (covered in SP 800-63B) -->
+
+- Authenticator Lifecycle および Authenticator Management 方式 (SP 800-63B)
+
+<!-- -   Authenticator lifecycle and management mechanisms (covered in SP 800-63B) -->
+
+- Claimant と Verifier の間の認証のために利用できるプロトコル (SP 800-63B)
+
+<!-- -   Protocols used to support the authentication mechanism between the
+    claimant and the verifier (covered in SP 800-63B) -->
+
+- Remote Authentication の認証結果を他の主体とやりとりするための Assertion 方式 (SP 800-63C).
+
+<!-- -   Assertion mechanisms used to communicate the results of a remote
     authentication if these results are sent to other parties (covered
-    in SP 800-63C).
+    in SP 800-63C). -->
 
-The overall authentication assurance level is determined by the lowest identity assurance and authenticator assurance level achieved in any of the areas listed above, and then by mapping the result to the corresponding Level of Assurance.
+全体の Authentication Assurance Level は, 上記の各エリアにおける Identity Assurance Level および Authenticator Assurance Level の最低値を対応する Level of Assurance にマッピングすることで決定される.
 
-Agencies may adjust the level of assurance using additional risk
+<!-- The overall authentication assurance level is determined by the lowest identity assurance and authenticator assurance level achieved in any of the areas listed above, and then by mapping the result to the corresponding Level of Assurance. -->
+
+各機関は追加のリスク緩和策によって Level of Assurance を調整してもよい.
+Credential Assurance Level を緩和することで, サービス利用可能顧客を増やすこともできる.
+ただしその場合でも, 各機関はシステムに適した Assurance Level の選択を保証すること.
+また, センシティブな情報を扱わない機能に関しては低い Level of Authentication および Level of Attribute Assurance を許容しつつ, センシティブな情報を扱う時にはより高い Level of Assurance を要求するといったように, Digital Authentication を行うアプリケーションを機能ごとに分割することもできる.
+
+<!-- Agencies may adjust the level of assurance using additional risk
 mitigation measures. Easing credential assurance level requirements may
 increase the size of the enabled customer pool, but agencies shall
 ensure that this does not corrupt the system’s choice of the appropriate
@@ -154,7 +185,7 @@ assurance level. Alternatively, agencies may consider partitioning the
 functionality of a digital authentication enabled application to allow less
 sensitive functions to be available at a lower level of authentication
 and attribute assurance, while more sensitive functions are available
-only at a higher level of assurance.
+only at a higher level of assurance. -->
 
 These technical guidelines cover remote digital authentication of
 human users to IT systems over a network. They do not address the
