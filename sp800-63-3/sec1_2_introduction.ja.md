@@ -187,7 +187,13 @@ sensitive functions to be available at a lower level of authentication
 and attribute assurance, while more sensitive functions are available
 only at a higher level of assurance. -->
 
-These technical guidelines cover remote digital authentication of
+これらの技術ガイドラインはネットワーク経由の IT システムに対する Remote Digital Authentication をカバーしているが, 対面による認証に関しては言及しない.
+例えばある建物への入館時等にリモート利用可能な Credential や Authenticator を Local Authentication に用いることもあるが, そういったユースケースは対象外である.
+当技術ガイドラインは,　認証プロトコルに関与する連邦の IT システムおよびサービスプロバイダーが Subscriber を認証する際の要件をまとめている.
+しかしながら Machine-to-Machine (Router-to-Router 等) の Authentication などには言及しない.
+また人間を相手にする Authentication Protocol において Machine や Server に対して Authentication Credential や Authenticator を発行するといったことも対象外である.
+
+<!-- These technical guidelines cover remote digital authentication of
 human users to IT systems over a network. They do not address the
 authentication of a person who is physically present, for example, for
 access to buildings, although some credentials and authenticators that are used
@@ -198,18 +204,29 @@ subscribers. However, these guidelines do not specifically address
 machine-to-machine (such as router-to-router) authentication, or
 establish specific requirements for issuing authentication credentials
 and authenticators to machines and servers when they are used in
-authentication protocols with people.
+authentication protocols with people. -->
 
-The paradigm of this document suite is that individuals are enrolled, issued an authenticator, and
+本ドキュメント群の枠組みにおいては, 個人を登録し, Authenticator を発行し, 個人の Identity を Authenticator に紐付けることで Registration プロセスを実施することになる.
+その後個人は Authentication Protocol に基づいて Authenticator を用いてシステムやアプリケーションに対してネットワーク経由でリモート認証を行う.
+この Authentication Protocol は, Authenticator Secret が様々な種類の攻撃から守られた状態で, 当該本人が Authenticator を所持および管理していることを Verifier に提示できるようなものである.
+より高い Authenticator Assurance Level では, より強固な Authenticator が要求され, より高度な Authenticator および関連する鍵の保護策が必要となる.
+より高い Identity Assurance Level では, より強固な Registration 手続きが要求される.
+
+<!-- The paradigm of this document suite is that individuals are enrolled, issued an authenticator, and
 undergo a registration process in which their identity is bound to that authenticator. Thereafter, the individuals are remotely authenticated to systems
 and applications over a network, using the authenticator in an authentication
 protocol. The authentication protocol allows an individual to
 demonstrate to a Verifier that he or she has possession and control of
 the authenticator, in a manner that protects the authenticator secret from
 compromise by different kinds of attacks. Higher authenticator assurance levels require use of stronger authenticators, better protection of
-the authenticator(s) and related secrets from attacks. Higher identity assurance levels require stronger registration procedures.
+the authenticator(s) and related secrets from attacks. Higher identity assurance levels require stronger registration procedures. -->
 
-This document suite focuses on authenticators that are difficult to forge because they
+本ドキュメント群は, 認可を受けていない主体にはアクセスできないような鍵を含み, 簡単には偽造できないような Authenticator にフォーカスしている.
+また本ドキュメント群が対象としている以外のコンテキストでは, この Authenticator を利用しないことが望ましい.
+Biometrics Authentication や Knowledge Based Authentication に代表されるように, ある種の認証技術は鍵というより個人に紐付いた情報を利用する.
+これらについてもある程度は述べるが, 特に本ドキュメント群の対象となるリモートでの利用シーンにおいては, これらは一般的にセキュリティレベルが低かったり定量化が困難であったりするため, 大枠では避けられている.
+
+<!-- This document suite focuses on authenticators that are difficult to forge because they
 contain some type of secret information that is not available to
 unauthorized parties and that is preferably not used in unrelated
 contexts. Certain authentication technologies, particularly biometrics
@@ -217,18 +234,29 @@ and knowledge based authentication, use information that is private
 rather than secret. While they are discussed to a limited degree, they
 are largely avoided because their security is often weak or difficult to
 quantify, especially in the remote situations that are the primary
-scope of this document suite.
+scope of this document suite. -->
 
-Knowledge based authentication achieves authentication by testing the
+Knowledge Based Authentication では, パブリックなデータベースに対して当該個人の知識をチェックすることになる.
+この情報はプライベートであると考えられるが, 実際には秘匿情報ではなく, 当該個人の Identity に関する確証を得ることは困難たりうる.
+また Knowledge Based Authentication システムの複雑さと相互依存性は定量化が困難である.
+しかしながら Knowledge Based Verification の技術は本ドキュメント群の Registration の一部として含まれている.
+
+<!-- Knowledge based authentication achieves authentication by testing the
 personal knowledge of the individual against information obtained from
 public databases. As this information is considered private but not
 actually secret, confidence in the identity of an individual can be hard
 to achieve. In addition, the complexity and interdependencies of
 knowledge based authentication systems are difficult to quantify.
 However, knowledge based verification techniques are included as part
-of registration in this document suite.
+of registration in this document suite. -->
 
-Biometric characteristics do not constitute secrets suitable for use in
+Biometrics は, 本ドキュメントで扱う伝統的 Remote Authentication Protocol で利用される鍵を構成するものとしては適切ではない.
+Local Authentication (本ドキュメント群の対象外) においては, Claimant は係員に監視され Verifier の管理下にある読取装置を利用することになる.
+Local Authentication においては, Biometrics が秘匿される必要はない.
+本ドキュメント群においては, 登録の否認防止のため Biometrics を使って Multifactor Authentication の Authenticator を "unlock" するケースをサポートする.
+これにより Registration Process 全体において同一の個人が関与していることが保証される.
+
+<!-- Biometric characteristics do not constitute secrets suitable for use in
 the conventional remote authentication protocols addressed in this
 document suite either. In the local authentication case (which is outside the scope of this document suite), where the claimant is
 observed by an attendant and uses a capture device controlled by the
@@ -236,9 +264,15 @@ Verifier, authentication does not require that biometrics be kept
 secret. This document suite supports the use of biometrics to “unlock”
 multifactor authentication authenticators, to prevent repudiation of
 registration, and to verify that the same individual participates in all
-phases of the registration process.
+phases of the registration process. -->
 
-This document suite identifies minimum technical requirements for remotely
+本ドキュメント群は Remote Authentication のための最低限の技術要件を特定するものである.
+各機関はそれぞれのリスク分析に基づいて特定コンテキストにおいて適切な追加対策を行ってもよい.
+特にプライバシー要件とリーガルリスクは, 各機関が Authentication やその他のプロセスにおける追加の保護策の採用を決める要因となりうる.
+Digital Authentication のプロセスおよびシステムを構築するにあたって, 各機関は *OMB Guidance for Implementing the Privacy Provisions of the E-Government Act of 2002* \[[OMB M-03-22](#M-03-22)\] を参照すべきである.
+*Guide to Federal Agencies on Implementing Electronic Processes* \[[DOJ 2000](#DOJ2000)\] は, *Use of Electronic Signatures in Federal Organization Transactions* \[[GSA ESIG](#GSAESIG)\] と同様に, リーガルリスクに関する追加情報として, 特に Legal Standards of Proof を満たし否認を防止するのに必要な要件を提供する.
+
+<!-- This document suite identifies minimum technical requirements for remotely
 authenticating users. Agencies may determine based on their risk
 analysis that additional measures are appropriate in certain contexts.
 In particular, privacy requirements and legal risks may lead agencies to
@@ -251,7 +285,7 @@ Implementing Electronic Processes* \[[DOJ 2000](#DOJ2000)\] for
 additional information on legal risks, especially those that are related
 to the need to satisfy legal standards of proof and prevent repudiation,
 as well as *Use of Electronic Signatures in Federal Organization
-Transactions* \[[GSA ESIG](#GSAESIG)\].
+Transactions* \[[GSA ESIG](#GSAESIG)\]. -->
 
 Additionally, Federal agencies implementing these guidelines should
 adhere to the requirements of Title III of the E-Government Act,
