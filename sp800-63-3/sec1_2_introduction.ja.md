@@ -287,7 +287,12 @@ to the need to satisfy legal standards of proof and prevent repudiation,
 as well as *Use of Electronic Signatures in Federal Organization
 Transactions* \[[GSA ESIG](#GSAESIG)\]. -->
 
-Additionally, Federal agencies implementing these guidelines should
+さらに, 本ガイドラインを実装する連邦政府機関は, Title III of the E-Government Act (*Federal Information Security Management Act* \[[FISMA](#FISMA)\]), および関連する NIST 標準 & ガイドラインの要件に準拠すべきである.
+FISMA は, 各政府機関に対して, 当該機関のオペレーションおよびアセットを支える情報および情報システムにおける情報セキュリティを確保する機関全体を通したプログラムの開発, 記録, 実装を要求する.
+Digital Authentication を実施する IT システムにおける Security Authorization も対象に含む.
+連邦政府機関以外がこれらのガイドラインを実装する場合も, Security Management, Certification, Accreditation (適格性認定) に関する同等の基準に従い, Digital システムにおけるセキュアなオペレーションを保障すべきである.
+
+<!-- Additionally, Federal agencies implementing these guidelines should
 adhere to the requirements of Title III of the E-Government Act,
 entitled the *Federal Information Security Management Act*
 \[[FISMA](#FISMA)\], and the related NIST standards and guidelines.
@@ -298,16 +303,28 @@ agency. This includes the security authorization of IT systems that
 digital authentication. It is recommended that non-Federal entities
 implementing these guidelines follow equivalent standards of security
 management, certification and accreditation to ensure the secure
-operations of their digital systems.
+operations of their digital systems. -->
 
 ### 2.1. How to Use this Suite of Special Publications
 
-The business model, marketplace, and the composition of the way identity services are delivered has drastically changed since initial versions of Special Publication 800-63 were released.  Notably, CSPs can be componentized and composed of multiple independently operated and owned business entities.  In addition, there is a significant benefit to provide strong authenticators even if no identity proofing is required.  Therefore, a suite of special publications under the 800-63 moniker has been created to facilitate these new models and make it easy to access the specific requirements for the function an entity may serve under the overall digital authentication model.  Each document stands alone.  However, it is expected that all CSPs, even componentized, will be required to meet the guidelines in [SP 800-63A](sp800-63a.html) and [SP 800-63B](sp800-63b.html).  If the CSP also participates in an identity federation, which is preferred over a standalone CSP, meeting the requirements of [SP 800-63C](sp800-63c.html) will apply.
+初期の Special Publication 800-63 がリリースされた頃と比較すると, ビジネスモデル, マーケットプレイス, Identity Service の提供形態などは大幅に変化している.
+特に CSP は, 異なるビジネス主体によって独立して運用・管理されたコンポーネントの組み合わせとして実現されるようになった.
+また Identity Proofing が不要なケースでも, 強固な Authenticator を利用するメリットが明らかになってきてもいる.
+こういった背景から, これらの新しいモデルを促進し, 全体の Digital Authentication モデルの特定の機能要素に求められる固有の要件に容易にたどり着けるように, 800-63 以下の一連の Special Publication が作成されたのである.
+各ドキュメントは独立しているが, すべての CSP は (たとえコンポーネント化されていても) [SP 800-63A](sp800-63a.html) および [SP 800-63B](sp800-63b.html) への準拠が求められている.
+CSP が Identity Federation をサポートする場合には, [SP 800-63C](sp800-63c.html) もその要件となる.
+なお, Standaline の CSP よりも Identity Federation をサポートする CSP が好まれることを注記しておく.
+
+<!-- The business model, marketplace, and the composition of the way identity services are delivered has drastically changed since initial versions of Special Publication 800-63 were released.  Notably, CSPs can be componentized and composed of multiple independently operated and owned business entities.  In addition, there is a significant benefit to provide strong authenticators even if no identity proofing is required.  Therefore, a suite of special publications under the 800-63 moniker has been created to facilitate these new models and make it easy to access the specific requirements for the function an entity may serve under the overall digital authentication model.  Each document stands alone.  However, it is expected that all CSPs, even componentized, will be required to meet the guidelines in [SP 800-63A](sp800-63a.html) and [SP 800-63B](sp800-63b.html).  If the CSP also participates in an identity federation, which is preferred over a standalone CSP, meeting the requirements of [SP 800-63C](sp800-63c.html) will apply. -->
 
 ### 2.2. Relationship to Other Standards and Guidelines
 
-This document has been written to satisfy the needs of federal agencies. However, with the expansion of citizen services throughout the world that require identity and authentication assurance, as well as an increasing number of use cases that promote international identity federation and interoperability, it is intended to achieve alignment to national and international standards that describe levels of identity assurance. This is not meant to imply that there is direct correlation between the IALs and AALs in this document and the levels in those standards, but that it is seen that this document fulfils the criteria as demonstrated in those standards.
+本ドキュメントは連邦政府機関のニーズに合わせて記述されている.
+しかしながら, 市民サービスが世界中に広がり, Identity Assurance および Authentication Assurance への要求が拡大する中, 国際的な Identity Federation や相互接続性を促進させるようなユースケースも増大している.
+よって, 国家的ないしは国際的な Level of Identity Assurance の標準を確立することも, 本ドキュメントの目的となる.
+IAL および AAL と国家的・国際的な様々な標準との間の直接的な相関があるわけでは無いが, 本ドキュメントはそういった標準が明示する基準を満たすものとなろう.
 
+<!-- This document has been written to satisfy the needs of federal agencies. However, with the expansion of citizen services throughout the world that require identity and authentication assurance, as well as an increasing number of use cases that promote international identity federation and interoperability, it is intended to achieve alignment to national and international standards that describe levels of identity assurance. This is not meant to imply that there is direct correlation between the IALs and AALs in this document and the levels in those standards, but that it is seen that this document fulfils the criteria as demonstrated in those standards. -->
 
 SP 800-63|[[GPG 45]](#GPG45)|[[RSDOPS]](#RSDOPS)|STORK 2.0|29115:2011|ISO 29003|Government of Canada
 :---------:|:----:|:----:|:-------:|:--------:|:-------:|:------------------:
@@ -321,88 +338,128 @@ AAL/IAL	 3|Level 4|N/A2|QAA Level 4|LoA 4|LoA 4|IAL/CAL 4
 
 #### 2.2.1. SP 800-63-1
 
-NIST SP 800-63-1 updated NIST SP 800-63 to reflect current authenticator (then referred to as token)
+NIST SP 800-63-1 は NIST SP 800-63 の更新版として, 当時の Authenticator (Token) 技術を反映し, Digital Authentication アーキテクチャモデルの理解をより深めるべく再構成されたものである.
+また同時に追加の (かつ最小限の) 技術要件が, CSP, 認証情報伝送用のプロトコル, (利用する場合は) Assertion に対して要求されている.
+その他の NIST SP 800-63 からの変更点は以下の通りである.
+
+<!-- NIST SP 800-63-1 updated NIST SP 800-63 to reflect current authenticator (then referred to as token)
 technologies and restructured to provide a better understanding of the
 digital authentication architectural model used here. Additional (minimum)
 technical requirements were specified for the CSP, protocols utilized to
 transport authentication information, and assertions if implemented
 within the digital authentication model. Other changes to NIST SP 800-63
-included:
+included: -->
 
--   Recognition of more types of tokens, including pre-registered
+- 従来の Token タイプに対する専門用語の変更や, Pre-registered Knowledge Token や Look-up Secret Token, Out-of-band Token 等のより多種多様な Token タイプへの言及.
+<!-- -   Recognition of more types of tokens, including pre-registered
     knowledge token, look-up secret token, out-of-band token, as well
-    as some terminology changes for more conventional token types;
+    as some terminology changes for more conventional token types; -->
 
--   Detailed requirements for assertion protocols and Kerberos;
+- Assertion Protocol と Kerberos に対する詳細な要求.
+<!-- -   Detailed requirements for assertion protocols and Kerberos; -->
 
--   A new section on token and credential management;
+- Token and Credential Management という新たなセクション.
+<!-- -   A new section on token and credential management; -->
 
--   Simplification of guidelines for password entropy and throttling;
+- パスワードエントロピーと Throttling に関するよりシンプルなガイドライン.
+<!-- -   Simplification of guidelines for password entropy and throttling; -->
 
--   Emphasis that the document is aimed at Federal IT systems;
+- Federal IT システムを対象としたドキュメントであることの強調.
+<!-- -   Emphasis that the document is aimed at Federal IT systems; -->
 
--   Recognition of different models, including a broader
+- Figure 1 に示す連邦 IT システムにおけるシンプルなモデル以外のより幅広い Digital Authentication モデル, Assertion モデル, Proxy モデルなどへの言及. (Figure 6 参照)
+<!-- -   Recognition of different models, including a broader
     digital authentication model (in contrast to the simpler model common
     among Federal IT systems shown in Figure 1) and an additional
-    assertion model, the Proxy Model, presented in Figure 6;
+    assertion model, the Proxy Model, presented in Figure 6; -->
 
--   Clarification of differences between Levels 3 and 4 in Table 12; and
+- Table 12 における Level 3 と Level 4 の差異の明確化.
+<!-- -   Clarification of differences between Levels 3 and 4 in Table 12; and -->
 
--   New guidelines that permit leveraging existing credentials to issue
-    derived credentials.
+- 既存の Credential を利用して新たな Credential を発行するための新たなガイドライン.
+<!-- -   New guidelines that permit leveraging existing credentials to issue
+    derived credentials. -->
 
-The subsequent sections of NIST SP 800-63-1 presented a series of
+NIST SP 800-63-1 では, それ以外にも RA, CSP, Verifier, RP のそれぞれに関するセキュアな実装のための一連の Recommendation を提示している.
+なお, これら一連の要素の全てがそれぞれセキュアに実装されて初めて, 必要とされる Level of Assurance を実現できることに注意すること.
+したがって NIST SP 800-63-1 では以下のような想定がなされている.
+
+<!-- The subsequent sections of NIST SP 800-63-1 presented a series of
 recommendations for the secure implementation of RAs, CSPs, Verifiers,
 and RPs. It should be noted that secure implementation of any one of
 these can only provide the desired level of assurance if the others are
 also implemented securely. Therefore, the following assumptions were
-made in NIST SP 800-63-1:
+made in NIST SP 800-63-1: -->
 
--   RAs, CSPs, and Verifiers are trusted entities. Agencies implementing
+- RA, CSP, Verifier はそれぞれ Trusted Entity である. これら Trusted Entity を実装する各機関は, それらがインタラクションを行うその他の Trusted Entity も同様に, 必要とされる Security Level を満たすよう適切に実装されていることに確証を持っている.
+<!-- -   RAs, CSPs, and Verifiers are trusted entities. Agencies implementing
     any of the above trusted entities have some assurance that all other
     trusted entities with which the agency interacts are also
-    implemented appropriately for the desired security level.
+    implemented appropriately for the desired security level. -->
 
--   The RP is not considered a trusted entity. However, in some
+- RP は Trusted Entity とはみなされないが, 認証システムによっては, Verifier が RP との関係性を維持し, セキュアコミュニケーションを推進して RP が責任を持って動作できるときにのみ本来の価値を発揮できるよう, なんらかの Security Control を行う場合もある. また Subscriber は, RP が要求されたサービスを適切に提供し, 関連する Privacy Policy に従うであろうと信頼している.
+<!-- -   The RP is not considered a trusted entity. However, in some
     authentication systems the Verifier maintains a relationship with
     the RP to facilitate secure communications and may employ security
     controls which only attain their full value when the RP
     acts responsibly. The subscriber also trusts the RP to properly
     perform the requested service and to follow all relevant
-    privacy policy.
+    privacy policy. -->
 
--   It is assumed that there exists a process of certification through
+- Certification のプロセスによって, 各機関が自分自身が実装した Trusted Entity 以外に対しても, 上記の各項目に対する確証を得ることができる.
+<!-- -   It is assumed that there exists a process of certification through
     which agencies can obtain the above assurance for trusted entities
-    which they do not implement themselves.
+    which they do not implement themselves. -->
 
--   A trusted entity is considered to be implemented appropriately if it
+- Trusted Entity は当該ドキュメントの推奨にしたがって適切に実装され, 悪意を持って不正を働かない.
+<!-- -   A trusted entity is considered to be implemented appropriately if it
     complies with the recommendations in this document and does not
-    behave maliciously.
+    behave maliciously. -->
 
--   While it is generally assumed that trusted entities will not behave
+- Trusted Entity は悪意を持って不正を働かないと想定されるが, 当該ドキュメントには Trusted Entity の悪意や過失によってもたらされるダメージを低減・分離するための Recommendation も含まれている.
+<!-- -   While it is generally assumed that trusted entities will not behave
     maliciously, this document does contain some recommendations to
     reduce and isolate any damage done by a malicious or negligent
-    trusted entity.
+    trusted entity. -->
 
 #### 2.2.2. SP 800-63-2
 
-NIST SP 800-63-2 was a limited update of Special Publication 800-63-1 and
+NIST SP 800-63-2 は Special Publication 800-63-1 の限定的なアップデートであり, 実質的な変更点は Section 5 *Registration and Issuance Processes* に限定されていた.
+これらの変更は Identity Proofing プロセスにおける Professional Credential の利用推進を目的としており, Level 3 の Remote Registration において Credential 発行のために当該住所に対して郵便を送る必要性を低減することを目的としていた.
+Section 5 に対するその他の変更は軽微である.
+
+<!-- NIST SP 800-63-2 was a limited update of Special Publication 800-63-1 and
 substantive changes were made only in section 5. *Registration and
 Issuance Processes*. The substantive changes in the revised draft were
 intended to facilitate the use of professional credentials in the
 identity proofing process, and to reduce the need to use postal mail to
 an address of record to issue credentials for level 3 remote
 registration. Other changes to section 5 were minor explanations and
-clarifications.
-
+clarifications. -->
 
 #### 2.2.3. SP 800-63-3
 
-NIST SP 800-63-3 is a substantial update and restructuring of Special Publication 800-63-2. It introduces the concepts of authenticator assurance level and identity assurance level to support the growing need for independent treatment of authentication strength and confidence in the claimant's identity (for example, in strong pseudonymous authentication). It also moves from a single document describing authentication to a family of four documents, of which SP 800-63-3 is the top-level document.
+NIST SP 800-63-3 では, Special Publication 800-63-2 に対して大幅な改定と再構成を行っている.
+本リビジョンでは Authenticator Assurance Level および Identity Assurance Level という概念を導入し, 認証強度と Claimant の Identity に関する確度を分離して扱いたいというニーズ (例えば仮名を使った強固な認証等) の高まりに答えている.
+また同時に単一のドキュメントであったものを, SP 800-63-3 を最上位とした4つのドキュメント群に分割している.
 
-Other areas of update to SP 800-63-2 include:
+<!-- NIST SP 800-63-3 is a substantial update and restructuring of Special Publication 800-63-2. It introduces the concepts of authenticator assurance level and identity assurance level to support the growing need for independent treatment of authentication strength and confidence in the claimant's identity (for example, in strong pseudonymous authentication). It also moves from a single document describing authentication to a family of four documents, of which SP 800-63-3 is the top-level document. -->
 
--	Terminology changes, primarily the use of *authenticator* in place of *token* to avoid conflicting use of the word *token* in assertion technologies
+SP 800-63-2 からのその他の変更は以下の通りである.
+
+<!-- Other areas of update to SP 800-63-2 include: -->
+
+- Assertion 技術における *Token* という用語との混同を防ぐため, 従来の *Token* という用語を *Authenticator* に置き換え.
+- Security 技術および脅威の拡大に対応すべく, Authentication および Assertion に関する要件を更新.
+- Verifier に対する長期間有効な Secret の保存に関する要件の追加.
+- Identity Proofing モデルの再構成.
+- "something you have" として利用されるチャネルおよびデバイスとしては, 独立したものを利用することという要件の明確化.
+- Pre-registered Knowledge Token (Authenticator) は (往々にして弱い) パスワードの特別な形態であるという認識のもと, Pre-registered Knowledge Token を関する記述の削除.
+- Authenticator を紛失したり盗難にあったりした場合における Account Recovery に関する要件の追加.
+- Reauthentication および Session Management に関するさらなる議論.
+- Identity Federation に関するさらなる議論. Federation コンテキストにおける Assertion の再構成.
+
+<!-- -	Terminology changes, primarily the use of *authenticator* in place of *token* to avoid conflicting use of the word *token* in assertion technologies
 -	Updates to authentication and assertion requirements to reflect advances in both security technology and threats
 -	Requirements on the storage of long-term secrets by verifiers
 -   Restructured identity proofing model
@@ -411,4 +468,4 @@ Other areas of update to SP 800-63-2 include:
 -	Removal of pre-registered knowledge tokens (authenticators), with the recognition that they are special cases of (often very weak) passwords.
 -	Requirements regarding account recovery in the event of loss or theft of an authenticator
 -   Expanded discussion of reauthentication and session management
--   Expanded discussion of identity federation; restructuring of assertions in the context of federation
+-   Expanded discussion of identity federation; restructuring of assertions in the context of federation -->
