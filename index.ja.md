@@ -29,9 +29,9 @@ description: "Public Preview for NIST Special Publication: SP 800-63-3 Digital A
 </li>
 <li>
   <div>
-    <a href="sp800-63b.html"><img src="assets/800_63_3_Authenticators.png" alt="SP 800-63B" width="150px" height="150px"></a>
+    <a href="sp800-63b.ja.html"><img src="assets/800_63_3_Authenticators.png" alt="SP 800-63B" width="150px" height="150px"></a>
   </div>
-  <h3><a href="sp800-63b.html">SP 800-63B</a></h3>
+  <h3><a href="sp800-63b.ja.html">SP 800-63B</a></h3>
   <h6>Authentication & Lifecycle Management</h6>
 </li>
 <li>
@@ -172,9 +172,9 @@ Source information, current standards, and public comments received through May 
 </li>
 <li>
   <div>
-    <a href="sp800-63b.html"><img src="assets/800_63_3_Authenticators.png" alt="SP 800-63B" width="150px" height="150px"></a>
+    <a href="sp800-63b.ja.html"><img src="assets/800_63_3_Authenticators.png" alt="SP 800-63B" width="150px" height="150px"></a>
   </div>
-  <h3><a href="sp800-63b.html">SP 800-63B</a></h3>
+  <h3><a href="sp800-63b.ja.html">SP 800-63B</a></h3>
   <h6>Authentication & Lifecycle Management</h6>
 </li>
 <li>

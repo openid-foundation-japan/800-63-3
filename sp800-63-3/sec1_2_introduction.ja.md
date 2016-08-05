@@ -311,8 +311,8 @@ operations of their digital systems. -->
 特に CSP は, 異なるビジネス主体によって独立して運用・管理されたコンポーネントの組み合わせとして実現されるようになった.
 また Identity Proofing が不要なケースでも, 強固な Authenticator を利用するメリットが明らかになってきてもいる.
 こういった背景から, これらの新しいモデルを促進し, 全体の Digital Authentication モデルの特定の機能要素に求められる固有の要件に容易にたどり着けるように, 800-63 以下の一連の Special Publication が作成されたのである.
-各ドキュメントは独立しているが, すべての CSP は (たとえコンポーネント化されていても) [SP 800-63A](sp800-63a.html) および [SP 800-63B](sp800-63b.html) への準拠が求められている.
-CSP が Identity Federation をサポートする場合には, [SP 800-63C](sp800-63c.html) もその要件となる.
+各ドキュメントは独立しているが, すべての CSP は (たとえコンポーネント化されていても) [SP 800-63A](sp800-63a.html) および [SP 800-63B](sp800-63b.ja.html) への準拠が求められている.
+CSP が Identity Federation をサポートする場合には, [SP 800-63C](sp800-63c.ja.html) もその要件となる.
 なお, Standaline の CSP よりも Identity Federation をサポートする CSP が好まれることを注記しておく.
 
 <!-- The business model, marketplace, and the composition of the way identity services are delivered has drastically changed since initial versions of Special Publication 800-63 were released.  Notably, CSPs can be componentized and composed of multiple independently operated and owned business entities.  In addition, there is a significant benefit to provide strong authenticators even if no identity proofing is required.  Therefore, a suite of special publications under the 800-63 moniker has been created to facilitate these new models and make it easy to access the specific requirements for the function an entity may serve under the overall digital authentication model.  Each document stands alone.  However, it is expected that all CSPs, even componentized, will be required to meet the guidelines in [SP 800-63A](sp800-63a.html) and [SP 800-63B](sp800-63b.html).  If the CSP also participates in an identity federation, which is preferred over a standalone CSP, meeting the requirements of [SP 800-63C](sp800-63c.html) will apply. -->

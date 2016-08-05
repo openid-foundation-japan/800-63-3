@@ -265,7 +265,7 @@ AAL 1 では幅広い認証技術が利用可能であり, Single Factor で十�
 
 **Authenticator Assurance Level 2** – AAL 2 では, Claimant が以前のトランザクションの参加者と同一であるというより高い Assurance が要求される.
 異なる2要素の Authentication Factor が必要となる.
-[SP 800-63B](sp800-63b.html) にあるように, Multi-Factor Software Cryptographic Authenticator を含む多様な Authenticator が利用可能である.
+[SP 800-63B](sp800-63b.ja.html) にあるように, Multi-Factor Software Cryptographic Authenticator を含む多様な Authenticator が利用可能である.
 また AAL 2 では AAL 3 を満たす認証方式を利用することもできる.
 Verifier Impersonation Attack に加えて, AAL 1 で規定される脅威から Primary Authenticator を保護する Cryptographic Mechanism も必要となる.
 Approved Cryptographic Mechanism は AAL 2 以上で用いられるあらゆる Assertion Protocol で必要となる.
@@ -314,7 +314,7 @@ Assertion には非対称暗号方式の署名に加え暗号化も行う.
 | 4 | 3 | 3 |4
 
 また, 以下の表には, 政府機関のニーズに基づいて新たに M-04-04 Level of Assurance の要件として認められることとなる IAL, AAL, FAL の組み合わせを示す.
-さらなる詳細や基準となる要素については [SP 800-63A](sp800-63a.html), [SP 800-63B](sp800-63b.html), [SP 800-63C](sp800-63c.ja.html) を参照のこと.
+さらなる詳細や基準となる要素については [SP 800-63A](sp800-63a.html), [SP 800-63B](sp800-63b.ja.html), [SP 800-63C](sp800-63c.ja.html) を参照のこと.
 
 <!-- However, the table below shows the new requirements that are allowable for M-04-04 Level of Assurance, by combining IAL, AAL, and FAL based on agency need. Further details and normative requirements are provided in are provided in [SP 800-63A](sp800-63a.html), [SP 800-63B](sp800-63b.html), and [SP 800-63C](sp800-63c.html) respectively. -->
 
@@ -349,7 +349,7 @@ AAL2 や AAL3 を満たす MFA Authenticator を利用する場合でも, IAL1 �
 >Important Note: 政府機関は上記表より高レベルの Assurance Level を受け入れてもよい.
 例えば, 政府系トランザクションにおいて, 当該アプリケーションが IAL2 を要件とする場合であっても, 政府機関は IAL3 Identity を受け入れることもできる.
 これは Authenticator についても同様であり, RP は必要とされるレベルより高いレベルの Authenticator を利用することもできる.
-しかしながら RP は, こういった政府系サービスのシナリオにおいても, CSP が適切にプライバシーが保護しており, RP が要求した属性のみが提供され Authenticator や Assertion からパーソナルインフォメーションが漏れないことを保証することになるであろう. 
+しかしながら RP は, こういった政府系サービスのシナリオにおいても, CSP が適切にプライバシーが保護しており, RP が要求した属性のみが提供され Authenticator や Assertion からパーソナルインフォメーションが漏れないことを保証することになるであろう.
 
 <!-- >Important Note: An agency can accept a higher assurance level than those required in the table above.  For example, in a federated transaction, an agency can accept an IAL3 identity if their application is assessed at IAL2.  The same holds true for authenticators; stronger authenticators can be used at RP's that have lower authenticator requirements.  However, RPs will ensure that these scenarios only occur in federated scenarios with appropriate privacy protections by the CSP to ensure that only the requested attributes are provided to the RP and that no personal information leaks from the authenticator or the assertion.  See [privacy requirements](../sp800-63c/sec8_privacy.md) in SP 800-63C for more details. -->
 

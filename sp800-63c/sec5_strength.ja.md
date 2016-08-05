@@ -40,7 +40,7 @@ RP は, その他の Identity Attributes を, Assertion と同時に発行され
 <!-- Assertions MAY include other additional identity attributes, but where possible the information contained in the assertion SHOULD be limited to the information required to process the authentication transaction. The RP MAY fetch additional identity attributes from the CSP in a separate transaction using an authorization credential issued along side the assertion. -->
 
 詳細は Federation Protocol ごとに異なるが, Assertion は RP での個々のログインイベントのみを表現するべきである (SHOULD).
-ひとたび RP が Assertion を受け取って処理を完了すれば, その後は [session management](sp800-63b.html#sec7) の段階に移り, 当該 Assertion を直接利用することはない.
+ひとたび RP が Assertion を受け取って処理を完了すれば, その後は [session management](sp800-63b.ja.html#sec7) の段階に移り, 当該 Assertion を直接利用することはない.
 
 <!-- Although details vary based on the exact federation protocol in use, an assertion SHOULD be used only to represent a single log-in event at the RP. After the RP consumes the assertion, [session management](sp800-63b.html#sec7) at the RP comes into play and the assertion is no longer used directly. -->
 
