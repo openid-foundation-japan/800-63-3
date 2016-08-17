@@ -216,7 +216,7 @@ A summary of each of the identity, authenticator, and federation assurance level
 
 **Federation Assurance Level 1** - FAL 1 allows for the subscriber to retrieve and present a bearer assertion directly to the RP. The assertion must be asymmetrically signed with an appropriate algorithm.
 
-**Federation Assurance Level 2** - FAL 2 requires the subscriber to retrieve an assertion artifact to present to the RP, which the RP then presents to the CSP to fetch the bearer assertion. The assertion must be asymmetrically signed with an appropriate algorithm.
+**Federation Assurance Level 2** - FAL 2 requires the subscriber to retrieve an assertion artifact to present to the RP, which the RP then presents to the CSP to fetch the bearer assertion. The assertion must be asymmetrically signed with an appropriate algorithm. Alternatively, if the assertion is presented directly, the assertion is required to be encrypted such that the RP is the only party that can decrypt it.
 
 **Federation Assurance Level 3** - FAL 3 builds on FAL 2 and adds the requirement that the assertion be encrypted such that the RP is the only party that can decrypt it.
 
@@ -240,10 +240,10 @@ However, the table below shows the new requirements that are allowable for M-04-
 
 | Level of Assurance (LOA) | Identity Assurance Level (IAL)| Authenticator Assurance Level (AAL) | Federation Assurance Level (FAL)
 |:------------------:|:-----------------------------:|:------------------------:|:------------------------:|
-| 1 | 1 | 1, 2 or 3 | 1
-| 2 | 1 or 2 | 2 or 3 |2
-| 3 | 1 or 2 | 2 or 3 |2
-| 4 | 1, 2 or 3 | 3 |3
+| 1 | 1 | 1, 2 or 3 | 1, 2, 3, or 4
+| 2 | 1 or 2 | 2 or 3 |2, 3, or 4
+| 3 | 1 or 2 | 2 or 3 |2, 3, or 4
+| 4 | 1, 2, or 3 | 3 |3 or 4
 
 This mapping takes advantage of the ability to separate distinct identity elements per assurance level.  For example, an agency is allowed to adopt multi-factor authentication (MFA) at LOA1. Conversely, little or no identity proofing can be performed at the higher LOAs.  
 
