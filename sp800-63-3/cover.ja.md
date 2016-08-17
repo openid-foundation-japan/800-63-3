@@ -29,6 +29,11 @@ James L. Fenton
 *Altmode Networks  
 Los Altos, CA*
 
+### 翻訳者
+
+Nov Matake  
+*YAuth.jp LLC*
+
 {::comment}
 
 This publication is available free of charge from:
