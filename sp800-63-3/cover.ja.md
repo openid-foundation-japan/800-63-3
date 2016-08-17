@@ -287,8 +287,9 @@ FIPS 201 準拠の Personal Identity Verification (PIV) Card が定める PIV Au
 **Federation Assurance Level 2** - FAL 2 では, Subscriber はまず Assertion Artifact を取得し, RP に提示する.
 RP は受け取った Assertion Artifact を CSP に提示して, Bearer Assertion を取得する.
 Assertion には署名が必要であり, 署名には非対称暗号方式の中から適切なアルゴリズムを用いることになる.
+また, Assertion が直接 Subscriber に渡される場合は, Assertion を暗号化し RP のみが復号できる状態にすることが要求される.
 
-<!-- **Federation Assurance Level 2** - FAL 2 requires the subscriber to retrieve an assertion artifact to present to the RP, which the RP then presents to the CSP to fetch the bearer assertion. The assertion must be asymmetrically signed with an appropriate algorithm. -->
+<!-- **Federation Assurance Level 2** - FAL 2 requires the subscriber to retrieve an assertion artifact to present to the RP, which the RP then presents to the CSP to fetch the bearer assertion. The assertion must be asymmetrically signed with an appropriate algorithm. Alternatively, if the assertion is presented directly, the assertion is required to be encrypted such that the RP is the only party that can decrypt it. -->
 
 **Federation Assurance Level 3** - FAL 3 では, FAL 2 に加え Assertion を暗号化する必要がある.
 暗号化により RP 以外は当該 Assertion を復号できなくなる.
@@ -320,10 +321,10 @@ Assertion には非対称暗号方式の署名に加え暗号化も行う.
 
 | Level of Assurance (LOA) | Identity Assurance Level (IAL)| Authenticator Assurance Level (AAL) | Federation Assurance Level (FAL)
 |:------------------:|:-----------------------------:|:------------------------:|:------------------------:|
-| 1 | 1 | 1, 2 or 3 | 1
-| 2 | 1 or 2 | 2 or 3 |2
-| 3 | 1 or 2 | 2 or 3 |2
-| 4 | 1, 2 or 3 | 3 |3
+| 1 | 1 | 1, 2 or 3 | 1, 2, 3, or 4
+| 2 | 1 or 2 | 2 or 3 |2, 3, or 4
+| 3 | 1 or 2 | 2 or 3 |2, 3, or 4
+| 4 | 1, 2, or 3 | 3 |3 or 4
 
 上記の組み合わせでは, Identity 要素を Assurance Level から切り離すことができる.
 例えば LOA1 で Multi-factor Authentication (MFA) を採用することも可能である.

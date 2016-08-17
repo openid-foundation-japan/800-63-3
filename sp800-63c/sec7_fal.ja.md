@@ -11,16 +11,20 @@ RP が当該トランザクションにおける要求レベルを明示した�
 FAL は [federation model](#sec4), [assertion protection strength](#sec5), および [assertion presentation](#sec6) を統合し, スカラーで比較可能な値としたものである.
 他の様々な要素を組み合わせることも可能だが, FAL の上記3要素を用いて段階的によりセキュアな実装方法の選択肢を提示することにより, 実装ガイドラインとして分かりやすいものを作ることを意図している.
 一連の各レベルは, そのレベル以下の要件をすべて満たすものとする.
+以下の表は Assertion の提示方式が Direct / Indirect であるかという点に基づいて, 異なる要件をまとめてしている.
+
+<!-- The FAL combines aspects of [federation model](#sec4), [assertion protection strength](#sec5), and [assertion presentation](#sec6) into a single, increasing scale. While many other combinations of factors are possible, this list is intended to provide clear implementation guidelines representing increasingly secure deployment choices. Each successive level subsumes and fulfills all requirements of lower levels. This table presents different requirements depending on whether the assertion is presented directly or indirectly. -->
+
 FAL のリストに無いような組み合わせも可能であるが, 本ドキュメントではそういった組み合わせは対象としない.
 
-<!-- The FAL combines aspects of [federation model](#sec4), [assertion protection strength](#sec5), and [assertion presentation](#sec6) into a single, increasing scale. While many other combinations of factors are possible, this list is intended to provide clear implementation guidelines representing increasingly secure deployment choices. Each successive level subsumes and fulfills all requirements of lower levels. Such definitions not found in the FAL table are possible but outside the scope of this document. -->
+<!-- Such definitions not found in the FAL table are possible but outside the scope of this document. -->
 
-|FAL|Requirement|
-|:--:|----|
-|1|Bearer assertion, direct presentation, asymmetrically signed by CSP|
-|2|Bearer assertion, indirect presentation, asymmetrically signed by CSP|
-|3|Bearer assertion, indirect presentation, asymmetrically signed by CSP and encrypted to RP|
-|4|Holder of key assertion, indirect presentation, asymmetrically signed by CSP and encrypted to RP|
+|FAL|Direct Presentation Requirement|Indirect Presentation Requirement|
+|:--:|----|----|
+|1|Bearer assertion, asymmetrically signed by CSP|Bearer assertion, asymmetrically signed by CSP|
+|2|Bearer assertion, asymmetrically signed by CSP|Bearer assertion, asymmetrically signed by CSP and encrypted to RP|
+|3|Bearer assertion, asymmetrically signed by CSP and encrypted to RP|Bearer assertion, asymmetrically signed by CSP and encrypted to RP|
+|4|Holder of key assertion, asymmetrically signed by CSP and encrypted to RP|Holder of key assertion, asymmetrically signed by CSP and encrypted to RP|
 
 例えば, FAL 1 は OpenID Connect Implicit Client Profile や SAML Web SSO Profile 等に相当する.
 FAL 2 は OpenID Connect Basic Client Profile, SAML Artifact Binding Profile 等に相当する.
@@ -33,3 +37,26 @@ FAL 4 では, FAL 3 に加えて, Assertion に紐付いた鍵 (FIDO Token 等) 
 したがって, 当該認証トランザクションで要求すべき FAL の決定や, 実際にそのトランザクションが当該 FAL に適合しているかの検証は, RP の責務である.
 
 <!-- Regardless of what is requested or required by the protocol, the applicable FAL is easily detected by the RP by observing the nature of the assertion as it is presented as part of the federation protocol. Therefore, the RP is responsible for determining which FALs it is willing to accept for a given authentication transaction and ensuring that the transaction meets the requirements of that FAL. -->
+
+以下に M-04-04 Level of Assurance に厳格に準拠する場合に必要となる Federation Assurance Level のマッピングを示す.
+
+<!-- The following table lists strict adherence to M-04-04 Level of Assurance, mapping the corresponding Federation Assurance Levels.  -->
+
+| Level of Assurance (LOA) |  Federation Assurance Level (FAL)
+|:------------------:|:-----------------------------:
+| 1 |  1
+| 2 | 2
+| 3 | 2
+| 4 | 4
+
+しかしながら M-04-04 Level of Assurance では以下のようなマッピングを採用することも可能である.
+各機関は算定した M-04-04 LOA に対応した適切な FAL を選択すべきである (SHALL).
+
+<!-- However, the table below shows the expanded set of FAL's that are allowable to meet M-04-04 Level of Assurance. Agencies SHALL select the corresponding FAL based on the assessed M-04-04 LOA. -->
+
+| Level of Assurance | Federation Assurance Level
+|:------------------:|:-----------------------------:
+| 1 | 1, 2, 3, or 4 
+| 2 | 2, 3, or 4
+| 3 | 2, 3, or 4
+| 4 | 3 or 4
