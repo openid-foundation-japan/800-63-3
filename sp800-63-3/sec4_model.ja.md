@@ -251,53 +251,118 @@ Authentication Process は, Authentication Protocol を通じて, Claimant が V
 
 <!-- The authentication process begins with the claimant demonstrating to the verifier possession and control of a authenticator that is bound to the asserted identity through an authentication protocol. Once possession and control has been demonstrated, the verifier verifies that the credential remains valid, usually by interacting with the CSP. -->
 
-The exact nature of the interaction between the verifier and the claimant during the authentication protocol is extremely important in determining the overall security of the system. Well-designed protocols can protect the integrity and confidentiality of traffic between the claimant and the verifier both during and after the authentication exchange, and it can help limit the damage that can be done by an attacker masquerading as a legitimate verifier.
+Authentication Protocol における Verifier と Claimant の間のインタラクションは, システム全体のセキュリティにとっても非常に重要である.
+よくデザインされたプロトコルでは, Claimant と Verifier の間のトラフィックは認証時も認証後も Integrity および Confidentiality が保護されており, 攻撃者が正規の Verifier になりすました場合でもその被害を限定的にすることができる.
 
-Additionally, mechanisms located at the verifier can mitigate online guessing attacks against lower entropy secrets like passwords and PINs by limiting the rate at which an attacker can make authentication attempts or otherwise delaying incorrect attempts. Generally, this is done by keeping track of and limiting the number of unsuccessful attempts, since the premise of an online guessing attack is that most attempts will fail.
+<!-- The exact nature of the interaction between the verifier and the claimant during the authentication protocol is extremely important in determining the overall security of the system. Well-designed protocols can protect the integrity and confidentiality of traffic between the claimant and the verifier both during and after the authentication exchange, and it can help limit the damage that can be done by an attacker masquerading as a legitimate verifier. -->
 
-The verifier is a functional role, but is frequently implemented in combination with the CSP and/or the RP. If the verifier is a separate entity from the CSP, it is often desirable to ensure that the verifier does not learn the subscriber’s authenticator secret in the process of authentication, or at least to ensure that the verifier does not have unrestricted access to secrets stored by the CSP.
+また Verifier 側では, パスワードや PIN などのエントロピーの低い鍵に対するオンライン推測攻撃への対策を行うこともできる.
+オンライン推測攻撃対策としては, Rate Limit を設ける方法や, 間違ったリクエストに対する Delay 処理を行うなどの方法があげられる.
+一般化すると, これらは間違った施行の回数を監視および制限することで実現できる.
+オンライン推測攻撃はその前提としてほとんどの施行が失敗するからである.
+
+<!-- Additionally, mechanisms located at the verifier can mitigate online guessing attacks against lower entropy secrets like passwords and PINs by limiting the rate at which an attacker can make authentication attempts or otherwise delaying incorrect attempts. Generally, this is done by keeping track of and limiting the number of unsuccessful attempts, since the premise of an online guessing attack is that most attempts will fail. -->
+
+Verifier は機能的には独立した役割であるものの, しばしば CSP and/or RP の一部として実装される傾向にある.
+Verifier が CSP から独立した主体である場合, Verifier は Subscriber の Authenticator Secret を Authentication Process を通じて知ることがないと保証されることが望ましい.
+最低限 Verifier が CSP の保有する鍵に制限なくアクセスできる状態は避けること.
+
+<!-- The verifier is a functional role, but is frequently implemented in combination with the CSP and/or the RP. If the verifier is a separate entity from the CSP, it is often desirable to ensure that the verifier does not learn the subscriber’s authenticator secret in the process of authentication, or at least to ensure that the verifier does not have unrestricted access to secrets stored by the CSP. -->
 
 ### 4.4. Federation and Assertions
 
-Normative requirements can be found in [Special Publication 800-63C, Federation and Assertions](sp800-63c.html).
+基準となる要件は [Special Publication 800-63C, Federation and Assertions](sp800-63c.ja.html) を参照のこと.
 
-Overall, SP 800-63-3 does not presuppose a federated identity architecture; rather, the guidance is agnostic to the types of models that exist in the marketplace, allowing agencies to deploy a digital authentication scheme according to their own requirements. However, identity federation, consistent with the National Strategy for Trusted Identities in Cyberspace (NSTIC) [[NSTIC]](#theNSTIC), is preferred over a number of siloed identity systems that each serve a single agency or RP.
+<!-- Normative requirements can be found in [Special Publication 800-63C, Federation and Assertions](sp800-63c.html). -->
 
-Federated architectures have many significant benefits, including, but not limited to:  
+全体的に SP 800-63-3 は Federated Identity Architecture を前提とはしない.
+本ガイダンスは市場にある既存のモデルにはとらわれず, 各機関が Digital Authentication Scheme を自身の要件に合わせて採用できるようにしている.
+しかしながら National Strategy for Trusted Identities in Cyberspace (NSTIC) [[NSTIC]](#theNSTIC) とも整合をとり, Identity Federation は各機関および RP が個別にサイロ化した Identity System を持つ状況よりも好ましいものとしている.
 
-* Enhanced user experience.  For example, an individual can be identity proofed once and can reuse the issued credential at multiple RPs
+<!-- Overall, SP 800-63-3 does not presuppose a federated identity architecture; rather, the guidance is agnostic to the types of models that exist in the marketplace, allowing agencies to deploy a digital authentication scheme according to their own requirements. However, identity federation, consistent with the National Strategy for Trusted Identities in Cyberspace (NSTIC) [[NSTIC]](#theNSTIC), is preferred over a number of siloed identity systems that each serve a single agency or RP. -->
+
+Federated Architecture は以下のような重要な利点をもたらす. (以下に挙げたものに限定はしない)
+
+<!-- Federated architectures have many significant benefits, including, but not limited to: -->
+
+* User Experience の向上. 例えばひとたび Identity Proofing を経た個人が, 同じ Credential を複数の RP に対して再利用することができる.
+* コスト削減. ユーザーにとっては Authenticator の削減, 各機関にとっては IT インフラの削減.
+* データ最小化. 各機関は個人情報の保存にかかる各種データ収集・保管・破棄およびコンプライアンス準拠活動を必要としない.
+* Privacy 向上.
+* Pseudonymous Attribute Assertion. 各機関はサービス提供のために必要最低限の Claim を含む属性のみをリクエストすることができる.
+* Misson Enablement. 各機関は Identity Management にかかる負荷を軽減し, 各々のミッションに集中できる.
+
+<!-- * Enhanced user experience.  For example, an individual can be identity proofed once and can reuse the issued credential at multiple RPs
 * Cost reduction, to both the user (one authenticator) and the agency (reduction in IT infrastructure)
 * Data minimization: agencies do not need to pay for collection, storage, disposal, and compliance activities related to storing personal information
 * Privacy enhancing
 * Pseudonymous attribute assertions. Agencies can request a minimized set of attributes, to include claims, to fulfill service delivery.
-* Mission enablement. Agencies can focus on mission, rather than the business of identity management.
+* Mission enablement. Agencies can focus on mission, rather than the business of identity management. -->
 
-The following sections discuss the components of a federated identity architecture should an agency elect this type of model.
+以降のセクションでは Federated Identity Architecture の各要素について議論する.
+
+<!-- The following sections discuss the components of a federated identity architecture should an agency elect this type of model. -->
 
 #### 4.4.1 Assertions
 
-Upon completion of the authentication process, the verifier generates an assertion containing the result of the authentication and provides it to the RP. If the verifier is implemented in combination with the RP, the assertion is implicit. If the verifier is a separate entity from the RP, as in typical federated identity models, the assertion is used to communicate the result of the authentication process, and optionally information about the subscriber, from the verifier to the RP. Assertions may be communicated directly to the RP, or can be forwarded through the subscriber, which has further implications for system design.
+Authentication Process が完了すると, Verifier は認証結果を含む Assertion を生成し, それを RP に提示する.
+Verifier が RP の一部として実装されている場合, この Assertion は Implicit である.
+Verifier が RP と分離して実装されている場合, それは典型的な Federated Identity モデルであり, Verifier から RP に認証プロセスの結果を伝搬するために Assertion が利用される.
+また同時に Subscriber に関する追加の情報も Assertion によって伝搬されることもある.
+Assertion は RP に直接渡されることもあれば, Subscriber を通じて伝搬されることもあるが, それはシステムデザインに密接に関係する.
 
-An RP trusts an assertion based on the source, the time of creation, and the corresponding trust framework that governs the policies and process of CSPs and RPs. The verifier is responsible for providing a mechanism by which the integrity of the assertion can be confirmed.
+<!-- Upon completion of the authentication process, the verifier generates an assertion containing the result of the authentication and provides it to the RP. If the verifier is implemented in combination with the RP, the assertion is implicit. If the verifier is a separate entity from the RP, as in typical federated identity models, the assertion is used to communicate the result of the authentication process, and optionally information about the subscriber, from the verifier to the RP. Assertions may be communicated directly to the RP, or can be forwarded through the subscriber, which has further implications for system design. -->
 
-The RP is responsible for authenticating the source (the verifier) and for confirming the integrity of the assertion. When the verifier passes the assertion through the subscriber, the verifier must protect the integrity of the assertion in such a way that it cannot be modified by the subscriber. However, if the verifier and the RP communicate directly, a protected session may be used to provide the integrity protection. When sending assertions across an open network, the verifier is responsible for ensuring that any sensitive subscriber information contained in the assertion can only be extracted by an RP that it trusts to maintain the information’s confidentiality.
+RP は Assertion の生成者, 生成日時, および CSP および RP のポリシーおよびプロセスを管轄する Trust Framework の存在などをもとに Assertion を信頼する.
+Verifier は Assertion の Integrity を確認できる仕組みを提供する責任がある.
 
-Examples of assertions include:
+<!-- An RP trusts an assertion based on the source, the time of creation, and the corresponding trust framework that governs the policies and process of CSPs and RPs. The verifier is responsible for providing a mechanism by which the integrity of the assertion can be confirmed. -->
 
-* SAML Assertions – SAML assertions are specified using a mark-up language intended for describing security assertions. They can be used by a verifier to make a statement to an RP about the identity of a claimant. SAML assertions may optionally be digitally signed.
+RP は Assertion 生成者 (Verifier) を認証し, Assertion の Integrity を確認する責任がある.
+Verifier が Subscriber を介して Assertion を伝搬してくる場合には, Verifier は Subscriber が Assertion を改ざんできないよう Integrity の保護を行う必要がある.
+Verifier と RP が直接通信を行う場合は, 保護されたセッションをもって Integrity Protection とすることもできる.
+Assertion をオープンなネットワークを介して送る場合, Verifier は Assertion に含まれる Subscriber に関するセンシティブな情報の Confidentiality を確保して信頼できる RP にのみ当該情報が受け取れるようにする責任がある.
+
+<!-- The RP is responsible for authenticating the source (the verifier) and for confirming the integrity of the assertion. When the verifier passes the assertion through the subscriber, the verifier must protect the integrity of the assertion in such a way that it cannot be modified by the subscriber. However, if the verifier and the RP communicate directly, a protected session may be used to provide the integrity protection. When sending assertions across an open network, the verifier is responsible for ensuring that any sensitive subscriber information contained in the assertion can only be extracted by an RP that it trusts to maintain the information’s confidentiality. -->
+
+Assertion の例としては以下のようなものがあげられる.
+
+<!-- Examples of assertions include: -->
+
+* SAML Assertions - SAML Assertion は Mark-up Language を用いて定義されており, Security Assertion の記述を目的とする. 当該 Assertion は Verifier が RP に対して Claimant の Identity に関する Statement を生成する際に利用できる. SAML Assertion はオプションで電子署名がされる.
+* OpenID Connect Claims - OpenID Connect は JavaScript Object Notation (JSON) を用いて Security に関する情報およびオプションで User Claims を記述するよう定義されている. JSON 形式のユーザー情報 Claims はオプションで電子署名がされる.
+* Kerberos Tickets - Kerberos Ticket は, Ticket Granting Authority が2つの認証された主体に対してセッションキーを発行する仕組みである. Kerberos では Symmetric Key ベースの秘匿化方式 (Encapsulation Scheme)を用いる.
+
+<!-- * SAML Assertions – SAML assertions are specified using a mark-up language intended for describing security assertions. They can be used by a verifier to make a statement to an RP about the identity of a claimant. SAML assertions may optionally be digitally signed.
 * OpenID Connect Claims - OpenID Connect are specified using JavaScript Object Notation (JSON) for describing security, and optionally, user claims.  JSON user info claims may optionally be digitally signed.
-* Kerberos Tickets – Kerberos Tickets allow a ticket granting authority to issue session keys to two authenticated parties using symmetric key based encapsulation schemes.
+* Kerberos Tickets – Kerberos Tickets allow a ticket granting authority to issue session keys to two authenticated parties using symmetric key based encapsulation schemes. -->
 
 #### 4.4.2. Relying Parties
 
-An RP relies on results of an authentication protocol to establish confidence in the identity or attributes of a subscriber for the purpose of conducting an online transaction. RPs may use a subscriber’s authenticated identity (pseudonymous or non-pseudonymous), the IAL, AAL and/or FAL (federation assurance level, indicating the strength of the assertion protocol), and other factors to make access control or authorization decisions. The verifier and the RP may be the same entity, or they may be separate entities. If they are separate entities, the RP normally receives an assertion from the verifier. The RP ensures that the assertion came from a verifier trusted by the RP. The RP also processes any additional information in the assertion, such as personal attributes or expiration times.
+RP は Authentication Protocol の結果を信頼し Subscriber の Identity および Attributes の確からしさを確立し, オンライントランザクションを行う.
+RP は Subscriber の Authenticated Identity (Pseudonymous な場合もあればそうでない場合もある), IAL, AAL and/or FAL およびその他の要素を用いて Access Control や Authorization Decision を行う.
+Verifier と RP は同じ主体なこともあれば, 相互に独立した主体であることもある.
+両者が相互に独立している場合, RP は通常 Verifier から Assertion を受け取り, Assertion が確かに自身が信頼する Verifier から送られてきたことを確認する.
+RP は Assertion に含まれる個人の属性や有効期限などの追加情報もおなじように処理する.
+
+<!-- An RP relies on results of an authentication protocol to establish confidence in the identity or attributes of a subscriber for the purpose of conducting an online transaction. RPs may use a subscriber’s authenticated identity (pseudonymous or non-pseudonymous), the IAL, AAL and/or FAL (federation assurance level, indicating the strength of the assertion protocol), and other factors to make access control or authorization decisions. The verifier and the RP may be the same entity, or they may be separate entities. If they are separate entities, the RP normally receives an assertion from the verifier. The RP ensures that the assertion came from a verifier trusted by the RP. The RP also processes any additional information in the assertion, such as personal attributes or expiration times. -->
 
 ### 4.5. Assurance Levels
 
-The overall M-04-04 LOA is determined by combining the discrete assurance level for each of the components of the architecture. For instance, to achieve M-04-04 LOA3:
+全体的な M-04-04 LOA はアーキテクチャ構成要素個々の Assurance Level の組み合わせによって決定される.
+例えば M-04-04 LOA3 を実現するには以下のような要件が求められる.
 
-* The enrollment and identity proofing process would, at a minimum, use IAL 1 or 2 processes.
+<!-- The overall M-04-04 LOA is determined by combining the discrete assurance level for each of the components of the architecture. For instance, to achieve M-04-04 LOA3: -->
+
+* 登録および Identity Proofing プロセスが最低でも IAL1 ないし IAL2 を満たす.
+* Authenticator (もしくは Authenticator の組み合わせ) が AAL2 以上である.
+* Authentication Assertion を利用する場合は, それが FAL2 以上である.
+
+<!-- * The enrollment and identity proofing process would, at a minimum, use IAL 1 or 2 processes.
 * The authenticator (or combination of authenticators) would have an AAL of 2 or higher.
-* Authentication assertions (if used) would have an FAL of 2 or higher.
+* Authentication assertions (if used) would have an FAL of 2 or higher. -->
 
-The overall level is determined by the lowest level because it will likely be the target of an attacker. For example, if a system uses an authenticator that has AAL 2 assurance, but uses assertion mechanisms at FAL 3, the attacker will likely focus on gaining access to the authenticator since it is easier to attack a system component meeting AAL 2 rather than attacking the assertion that meets FAL 3.
+攻撃者はもっとも弱い対象を攻撃する傾向にあるため, 全体のレベルは個々のレベル群の最低値となる.
+例えばあるシステムが AAL2 を満たす Authenticator を利用しており, Assertion メカニズムは FAL3 を満たす場合, Attacker は FAL3 を満たす Assertion に対する攻撃よりも AAL2 を満たす Authenticator への攻撃の方が容易と判断し, Authenticator への攻撃を行うであろう.
+
+<!-- The overall level is determined by the lowest level because it will likely be the target of an attacker. For example, if a system uses an authenticator that has AAL 2 assurance, but uses assertion mechanisms at FAL 3, the attacker will likely focus on gaining access to the authenticator since it is easier to attack a system component meeting AAL 2 rather than attacking the assertion that meets FAL 3. -->
