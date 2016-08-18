@@ -355,7 +355,7 @@ AAL2 や AAL3 を満たす MFA Authenticator を利用する場合でも, IAL1 �
 例えば, Federated トランザクションにおいて, 当該アプリケーションが IAL2 を要件とする場合であっても, 政府機関は IAL3 Identity を受け入れることもできる.
 これは Authenticator についても同様であり, RP は必要とされるレベルより高いレベルの Authenticator を利用することもできる.
 しかしながら RP は, 上記のようなシナリオが CSP が適切にプライバシーを保護している Federated シナリオにおいてのみ発生し, RP が要求した属性のみが提供され, Authenticator や Assertion からパーソナルインフォメーションが漏洩しないことを保証すること.
-詳細は [privacy requirements](../sp800-63c.html#sec9) を参照のこと.
+詳細は [privacy requirements](./sp800-63c.html#sec9) を参照のこと.
 
 <!-- >Important Note: An agency can accept a higher assurance level than those required in the table above.  For example, in a federated transaction, an agency can accept an IAL3 identity if their application is assessed at IAL2.  The same holds true for authenticators; stronger authenticators can be used at RP's that have lower authenticator requirements.  However, RPs will ensure that these scenarios only occur in federated scenarios with appropriate privacy protections by the CSP to ensure that only the requested attributes are provided to the RP and that no personal information leaks from the authenticator or the assertion.  See [privacy requirements](../sp800-63c/sec8_privacy.md) in SP 800-63C for more details. -->
 
