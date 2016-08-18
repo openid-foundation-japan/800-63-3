@@ -222,7 +222,7 @@ third component, *Federation Assurance Level (FAL)*, is required. -->
 * AAL refers to the robustness of the authentication process itself.
 * FAL refers to the robustness of the assertion protocol utilized by the federation to communicate authentication and attribute information (if applicable) to a relying party. -->
 
-このようにメトリクスを分割することで, 仮名を用いつつ強固な認証手段を採用したり, Authenticator の発行と各個人の Authenticator に紐付いた Credential の確立を分離するといったことが可能となる.
+このようにメトリクスを分割することで, 仮名を用いつつ強固な認証手段を採用したり, Authenticator の発行と Authenticator と個人を紐付ける Credential の確立を分離するといったことが可能となる.
 
 <!-- The separation of these metrics supports applications requiring strong authentication that may be pseudonymous, and the separation of authenticator issuance from the establishment of credentials binding those authenticators to individuals. -->
 
