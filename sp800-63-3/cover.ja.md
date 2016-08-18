@@ -372,13 +372,13 @@ AAL2 や AAL3 を満たす MFA Authenticator を利用する場合でも, IAL1 �
 | **AAL 3** | Allowed | Allowed | Allowed |
 
 注) IAL2 の登録フローで発行された Credential は, AAL2 を満たす Authenticator に紐付ける必要がある (MUST).
-これらの Credential を管理・利用する際に必要となるパーソナルデータを扱うには, Multi-factor Authentication が必要となる.
+これらの Credential を管理する際 (およびしばしば利用する際にも) に必要となるパーソナルデータを扱うには, Multi-factor Authentication が必要となる.
 また IAL3 で発行された Credential は, AAL3 Authenticator に紐づけるべきである (SHOULD).
-こういった Credential は, 対面の Identity Proofing を必要とするようなセンシティブなアプリケーションで必要となることが多い.
+こういった Authenticator は, 対面の Identity Proofing を必要とするようなセンシティブなアプリケーションで必要となることが多い.
 
 <!-- Note: AAL 2 capable authenticators MUST be bound to credentials at IAL 2 enrollment since management (and often use) of those credentials is a release of personal data requiring multi-factor authentication. AAL 3 authenticators SHOULD be bound to IAL 3 credentials since they are frequently required for the high-sensitivity applications that require in-person identity proofing. -->
 
-IAL2 を要件とするトランザクションでも, Subscriber がパーソナルデータにアクセス不可であり, その他のリスクやセンシティビティに関する M-04-04 の要件が満たされる場合には, AAL1 の Authenticator を利用することができる (MAY) 場合もある. (Executive Order 13681 参照)
+IAL2 を要件とするトランザクションでも, (Executive Order 13681 によって) Subscriber がパーソナルデータにアクセス不可であり, その他のリスクやセンシティビティに関する M-04-04 の要件が満たされる場合には, AAL1 の Authenticator を利用することができる (MAY) 場合もある.
 
 <!-- In limited situations, a given transaction requiring IAL 2 MAY be able to authenticate at AAL 1 when personal data is not made accessible to the subscriber (per Executive Order 13681) and the other risk and sensitivity requirements of M-04-04 are satisfied. -->
 
