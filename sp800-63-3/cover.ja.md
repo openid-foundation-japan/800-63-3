@@ -178,9 +178,9 @@ SP 800-63-3 ドキュメント群は, 個人が連邦デジタルサービスに
 Guidance for Federal Agencies* [[OMB M-04-04]](#M-04-04) を補完し, NIST SP 800-63-1 および SP 800-63-2 に取って代わる.
 OMB M-04-04 は, 認証方式や Credential の利用方式といった観点から, Level 1-4 までの4つの Level of Assurance を定義している.
 Level 1はもっとも低い Assurance Level であり, Level 4が最高となる.
-OMB ガイダンスは誤った認証結果によりもたらされる影響といった観点から, 必要な Identity Assurance のレベルを定義している.
+OMB ガイダンスは誤った認証結果によりもたらされる影響といった観点から, 必要な Assurance Level を定義している.
 誤った認証結果がもたらす影響がより重大であれば, 必要な Level of Assurance も高くなる.
-OMB ガイダンスは, 各アプリケーションおよびトランザクションにおけるリスクや発生確率の高さなどに基づき, 政府機関にそれらのアプリケーションやトランザクションで求められる Identity Assurance Level を決定するための判断基準を提供している.
+OMB ガイダンスは, 各アプリケーションおよびトランザクションにおけるリスクや発生確率の高さなどに基づき, 政府機関にそれらのアプリケーションやトランザクションで求められる Assurance Level を決定するための判断基準を提供している.
 
 <!-- These technical guidelines supplement OMB guidance, *E-Authentication
 Guidance for Federal Agencies* [[OMB M-04-04]](#M-04-04) and
@@ -207,7 +207,7 @@ OMB ガイダンスでは, 各政府機関は以下の5つのステップにし�
 <!-- 5.  Periodically reassess the information system to determine technology refresh requirements. -->
 
 本ドキュメント群は上記の Step 3 で用いる一連のガイドラインを提供する.
-これらのガイドラインでは, Identity Assurance を構成する個々の要素を分割するといった, Digital Authentication における新たなアプローチをとる.
+これらのガイドラインでは, Assurance Level を構成する個々の要素を分割するといった, Digital Authentication における新たなアプローチをとる.
 Federation を利用しないシステムの場合, 政府機関は *Identity Assurance Level (IAL)* および *Authenticator Assurance Level (AAL)* という2つの要素をそれぞれ選択して組み合わせることになる.
 Federation を利用する場合は, さらに *Federation Assurance Level (FAL)* という要素も必要となる.
 
