@@ -12,7 +12,7 @@
 
 Digital Authentication は, 情報システムに対して提示された User Identity の確からしさを確立するプロセスである.
 ネットワーク越しに個人に対して Remote Authentication を行う場合, Digital Authentication は技術的なチャレンジに直面する.
-本リコメンデーションは, 政府機関に技術的なガイドラインを提示し, 個人がリモートで Federal Information Technology (IT) に対して自身の Identity を認証できるようにする.
+本リコメンデーションは, 政府機関に技術的なガイドラインを提示し, 個人がリモートで Federal Information Technology (IT) システムに対して自身の Identity を認証できるようにする.
 また同様に Credential Service Provider (CSP), Verifier, Relying Party (RP) に対するガイドラインも提示する.
 
 <!-- Digital authentication is the process of
