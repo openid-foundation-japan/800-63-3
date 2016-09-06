@@ -37,7 +37,7 @@ The ongoing authentication of subscribers is central to this process. Subscriber
 These technical guidelines apply to digital authentication of human users to IT systems over a network. They do not primarily address the authentication of a person who is physically present, for example, for access to buildings, although some credentials that are used remotely may also be used in local authentication. These technical guidelines also establish requirements that Federal IT systems and service providers participating in authentication protocols be authenticated to subscribers. However, these guidelines do not specifically address machine-to-machine (such as router-to-router) authentication, or establish specific requirements for issuing authentication credentials to machines and servers when they are used in e-authentication protocols with people.
 -->
 
-これらの技術的なガイドラインは人間のユーザがネットワークを介してITシステムに対して行うデジタル認証に適用される。これらは主として人間が物理的に存在すること ー例えばそのユーザが建物に入館できることー の認証については言及しない。しかしながら、リモートで利用されるクレデンシャルのなかにはローカルの認証でも利用するものがあるかもしれない。また、これらの技術的なガイドラインは、米国連邦のITシステムやサービスプロバイダが加入者を認証するための認証プロトコルに準拠する上での要件を規定している。しかしながら、これらのガイドラインは、(ルータ同士のような)Machine-to-machineの認証については言及していない。また、マシンやサーバに対して発行された認証クレデンシャルが、E-authenticationプロトコル中でユーザを介して利用される際の特別な要件については規定しない。
+これらの技術的なガイドラインは人間のユーザがネットワークを介してITシステムに対して行うデジタル認証に適用される。これらは主として物理的にその場に存在する人間の認証 (例えばある建物への入館に必要な認証など) については言及しない。しかしながら、リモートで利用されるクレデンシャルのなかにはローカルの認証でも利用するものがあるかもしれない。また、これらの技術的なガイドラインは、米国連邦のITシステムやサービスプロバイダが加入者を認証するための認証プロトコルに準拠する上での要件を規定している。しかしながら、これらのガイドラインは、(ルータ同士のような)Machine-to-machineの認証については言及していない。また、マシンやサーバに対して発行された認証クレデンシャルが、E-authenticationプロトコル中でユーザを介して利用される際の特別な要件については規定しない。
 
 <!--TODO E-authentication-->
 
