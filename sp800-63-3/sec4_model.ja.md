@@ -1,5 +1,7 @@
 <a name="sec4"></a>
 
+<div class="breaker"></div>
+
 ## 4. Digital Authentication Model
 
 ### <a name="4-1"></a>4.1. Overview
@@ -28,7 +30,7 @@ Credential には Identifier (仮名可) が含まれており, CSP が検証し
 Authenticator は CSP が発行することもあれば, Subscriber が直接生成・提示することもあり, 3rd-party が提供することもある.
 Authenticator と Credential はそれ以降の Authentication Event で用いられる.
 
-<!-- Digital authentication begins with enrollment. The usual sequence for enrollment proceeds as follows. An applicant applies to a CSP. If approved, the CSP creates a credential and binds it to one or more authenticators. The credential includes an identifier, which can be pseudonymous, and possibly one or more attributes that the CSP has verified. The authenticators may be issued by the CSP, generated/provided directly by the subscriber, or provided by a third party. The authenticator and credential may be used in subsequent authentication events. -->
+<!-- Digital authentication begins with enrollment. The usual sequence for enrollment proceeds as follows. An applicant applies to a CSP. If approved, the CSP creates a credential and binds it to one or more authenticators. The credential includes an identifier, which can be pseudonymous, and possibly one or more attributes that the CSP has verified. The authenticators may be issued by the CSP, generated/provided directly by the subscriber, or provided by a third party. The authenticators and credential may be used in subsequent authentication events. -->
 
 Applicant が彼らの実世界の Identity と紐付いていることを検証するプロセスが *Identity Proofing* である.
 Identity Proofing の強度は Identity Assurance Level (IAL) としてカテゴライズされている.
@@ -39,7 +41,7 @@ RP は彼らが必要とする IAL を2ないし3とした上で, 特定の属�
 こういったケースでは必要な属性のみを要求することでプライバシーを高めることができるが, これは Proofing Process の強度を Authentication Process の強度と分離して定義したことで得られたメリットの1つである.
 RP は Identity Proofing, Attribute Collection, Attribute Storage をすべて CSP にゆだねる Federated Identity というアプローチをとることもできる.
 
-<!-- The process used to verify an applicant's association with their real world identity is called *identity proofing*. The strength of identity proofing is described by a categorization called the identity assurance level (IAL). At IAL 1, identity proofing is not required, therefore any attribute information provided by the subscriber is self-asserted and not verified. At IAL 2 and 3, identity proofing is required, but the CSP may assert verified attribute values, verified attribute claims, pseudonymous identifiers, or nothing. This information assists Relying Parties (RPs) in making access control or authorization decisions. RPs may decide that their required IAL is 2 or 3, but may only need specific attributes, and perhaps attributes that retain an individual's pseudonymity. This privacy enhancing approach is one of the benefits of separating the strength of the proofing process from that of the authentication process. A relying party may also employ a federated identity approach where the RP outsources all identity proofing, attribute collection, and attribute storage to a CSP. -->
+<!-- The process used to verify an applicant's association with their real world identity is called *identity proofing*. The strength of identity proofing is described by a categorization called the identity assurance level (IAL). At IAL 1, identity proofing is not required, therefore any attribute information provided by the subscriber is self-asserted and not verified. At IAL 2 and 3, identity proofing is required, but the CSP may assert verified attribute values, verified attribute claims, pseudonymous identifiers, or nothing. This information assists Relying Parties (RPs) in making access control or authorization decisions. RPs may decide that their required IAL is 2 or 3, but may only need specific attributes, perhaps those that retain a degree of pseudonymity for the individual. This privacy enhancing approach is one of the benefits of separating the strength of the proofing process from that of the authentication process. A relying party may also employ a federated identity approach where the RP outsources all identity proofing, attribute collection, and attribute storage to a CSP. -->
 
 本ドキュメント群では, 認証される主体を *Claimant*, Identity を検証する主体を *Verifier* と呼ぶ.
 Authentication Protocol を通じて Claimant が1つ以上の Authenticator を所有および管理していることを Verifier に示すことで, Verifier は Claimant が正規の Subscriber であることを検証できる.
@@ -56,9 +58,9 @@ Authentication は Claimant Identity の確からしさを確立し, 場合に�
 (例えば, Subscriber が US Citizen であるとか, 特定の大学の学生であるとか, ある機関や組織から特定の番号やコードを割り振られているなど)
 Authentication は Claimant が認可されているかやアクセス権を持つかなどを判断するものではなく, それらはまた別の話である.
 RP (例: 政府機関) は Subscriber の Authenticated Identity および Attributes をもとに, その他の要素も含めて, Access Control や Authorization Decision を行う.
-本ドキュメントは RP が Subscriber を認証した後に追加の情報を要求することを禁止するものではない.
+本ドキュメント群は RP が Subscriber を認証した後に追加の情報を要求することを禁止するものではない.
 
-<!-- Authentication establishes confidence in the claimant’s identity, and in some cases in the claimant’s attributes (for example if the subscriber is a US Citizen, is a student at a particular university, or is assigned a particular number or code by an agency or organization). Authentication does not determine the claimant’s authorizations or access privileges; this is a separate decision. RPs (e.g., government agencies) will use a subscriber’s authenticated identity and attributes with other factors to make access control or authorization decisions. Nothing in this document precludes RPs from requesting additional information from a subscriber that has successfully authenticated. -->
+<!-- Authentication establishes confidence in the claimant’s identity, and in some cases in the claimant’s attributes (for example if the subscriber is a US Citizen, is a student at a particular university, or is assigned a particular number or code by an agency or organization). Authentication does not determine the claimant’s authorizations or access privileges; this is a separate decision. RPs (e.g., government agencies) will use a subscriber’s authenticated identity and attributes with other factors to make access control or authorization decisions. Nothing in this document suite precludes RPs from requesting additional information from a subscriber that has successfully authenticated. -->
 
 Authentication Process の強度は Authenticator Assurance Level (AAL) として記述される.
 AAL1 は Single-factor Authencitacion を要求し, 多様な Authenticator の利用を認めている.
@@ -77,7 +79,7 @@ Authentication の一環として, Device Identity や Geo-location などのメ
 左側は登録, Credential 発行, Lifecycle Management, 個人が Identity Proofing および Authentication の各フェーズで取りうるステータスを示している.
 一般的には以下のような一連のインタラクションが行われる.
 
-<!-- The various entities and interactions that comprise the digital authentication model used here are illustrated below in [Figure 4-1](#63Sec4-Figure1). The left shows the enrollment, credential issuance, lifecycle management activities, and the various states an individual transitions to based on the phase of identity proofing and authentication they are in. The usual sequence of interactions is as follows: -->
+<!-- The various entities and interactions that comprise the digital authentication model used here are illustrated below in [Figure 4-1](#63Sec4-Figure1). The left side of the diagram shows the enrollment, credential issuance, lifecycle management activities, and the various states an individual transitions among based on the phase of identity proofing and authentication they are in. The usual sequence of interactions is as follows: -->
 
 1. 個人 (Applicant) が登録プロセスを通じて CSP に申し込みを行う.
 2. CSP は Applicant に対して Identity Proofing を行い, Proofing が成功すれば Applicant は Subscriber となる.
@@ -86,8 +88,8 @@ Authentication の一環として, Device Identity や Geo-location などのメ
 
 <!-- 1.	An individual (applicant) applies to a CSP through an enrollment process.
 2.	The CSP identity proofs that applicant. Upon successful proofing, the applicant becomes a subscriber.
-4.	An authenticator and a corresponding credential are established between the CSP and the new subscriber.
-5. The CSP maintains the credential, its status, and the enrollment data collected for the lifetime of the credential (at a minimum). The subscriber maintains his or her authenticator. -->
+4.	Authenticator(s) and a corresponding credential are established between the CSP and the new subscriber.
+5. The CSP maintains the credential, its status, and the enrollment data collected for the lifetime of the credential (at a minimum). The subscriber maintains his or her authenticator(s). -->
 
 これ以外のフローは上記ほど一般的ではないであろうが, 同じ要件を満たす別のやり方も存在しうる.
 
@@ -100,12 +102,12 @@ Authentication の一環として, Device Identity や Geo-location などのメ
 
 1. Claimant は自身の Authenticator を所有および管理していることを Authentication Protocol を通じて Verifier に示す.
 2. Verifier や CSP とインタラクションをおこない, Subscriber Identity と Authenticator を紐付ける Credential の検証を行う. また同時に CSP から Claimant の属性を取得することもある.
-3. Verifier が RP と別の主体の場合, Verifier は RP に対して Subscriber に関する Assertion を提供する. RP は Assertion に含まれる情報を使って Access Control や Authorization Decision を行う.
+3. Federated Identity Architecture においては, CSP / Verifier は RP に対して Subscriber に関する Assertion を提供する. RP は Assertion に含まれる情報を使って Access Control や Authorization Decision を行う.
 4. Subscriber と RP の間で認証済セッションが確立される.
 
-<!-- 1.	The claimant proves to the verifier that he or she possesses and controls the authenticator through an authentication protocol.
+<!-- 1.	The claimant proves to the verifier that he or she possesses and controls the authenticator(s) through an authentication protocol.
 2.	The verifier interacts with the CSP to validate the credential that binds the subscriber’s identity to his or her authenticator and to optionally obtain claimant attributes.
-3.	If the verifier is separate from the RP (application), the verifier provides an assertion about the subscriber to the RP, which may use the information in the assertion to make an access control or authorization decision.
+3.	In a federated identity architecture, the CSP/verifier provides an assertion about the subscriber to the RP, which may use the information in the assertion to make an access control or authorization decision.
 4.	An authenticated session is established between the subscriber and the RP. -->
 
 いかなる場合でも, RP は Claimant の認証前に必要な属性を CSP に要求するべきである.
@@ -137,19 +139,19 @@ Subscriber が Authenticator および Credential の期限切れないし無効
 
 ### 4.2. Enrollment and Identity Proofing
 
-基準となる要件は [Special Publication 800-63A, Enrollment and Identity Proofing](sp800-63a.ja.html) を参照のこと.
+基準となる要件は [Special Publication 800-63A](sp800-63a.ja.html) *Enrollment and Identity Proofing* を参照のこと.
 
-<!-- Normative requirements can be found in [Special Publication 800-63A, Enrollment and Identity Proofing](sp800-63a.html). -->
+<!-- Normative requirements can be found in [Special Publication 800-63A](sp800-63a.html), *Enrollment and Identity Proofing*. -->
 
 前セクションでは Digital Authentication Model に登場する複数の主体が登場した.
 本セクションでは, それら各主体のうち, 登録および Identity Proofing に関与する主体間の関連や責任分担について詳細にまとめる.
 
 <!-- The previous section introduced the different participants in the conceptual digital authentication model. This section provides additional details regarding the relationships and responsibilities of the participants involved with enrollment and identity proofing. -->
 
-個人はこのステージでは Applicant と呼ばれ, CSP に対して Credential 発行を要求する.
+個人はこのステージでは *Applicant* と呼ばれ, CSP に対して Credential 発行を要求する.
 Applicant が Identity Proofing に成功すると, CSP は Credential を発行し, Authenticator を当該 Credential に紐づけ, それをもって当該個人は CSP の Subscriber となる.
 
-<!-- An individual, referred to as an applicant at this stage, requests credentials from a CSP. If the applicant is successfully proofed and a credential is created by a CSP and authenticator(s) are bound to it, the individual is then termed a subscriber of that CSP. -->
+<!-- An individual, referred to as an *applicant* at this stage, requests credentials from a CSP. If the applicant is successfully proofed and a credential is created by a CSP and authenticator(s) are bound to it, the individual is then termed a subscriber of that CSP. -->
 
 CSP は各 Subscriber をユニークに識別するメカニズムを確立し, Subscriber の Credential を登録し, Subscriber に発行された Authenticator を監視する.
 Subscriber が登録時に Authenticator を受け取ることもあれば, Subscriber がすでに所有している Authenticator を CSP が紐付けることもあり, あとで必要になった段階で Authenticator を生成することもある.
@@ -160,7 +162,9 @@ CSP は各 Subscriber の登録レコードを管理し, リカバリなどに�
 
 ### 4.3. Authentication and Lifecycle Management
 
-基準となる要件は [Special Publication 800-63B, Authentication and Lifecycle Management](sp800-63b.ja.html) を参照のこと.
+基準となる要件は [Special Publication 800-63B](sp800-63b.ja.html) *Authentication and Lifecycle Management* を参照のこと.
+
+<!-- Normative requirements can be found in [Special Publication 800-63B](sp800-63b.html), *Authentication and Lifecycle Management*. -->
 
 #### 4.3.1. Authenticators
 
@@ -175,9 +179,9 @@ Authentication System における古典的なパラダイムでは, Authentica
 Multi-factor Authentication では上記から2つ以上の要素を利用することになる.
 Authentication System の強度は大枠としてそのシステムに組み込まれた認証要素数によって決まる.
 2つの異なる要素を利用した実装は1要素のみの場合より強度が高いと考えられ, 3要素すべてを利用する場合はより強度が高いと考えられる.
-[Section 4.1](#4-1) で述べたように, RP や Verifier が位置情報や Device Identity などのその他の情報を利用して Claimed Identity に関するリスク評価を行うこともあるが, それらは認証要素とはみなされない.
+[Section 5.1](#5-1) で述べるように, RP や Verifier が位置情報や Device Identity などのその他の情報を利用して Claimed Identity に関するリスク評価を行うこともあるが, それらは認証要素とはみなされない.
 
-<!-- Multi-factor authentication refers to the use of more than one of the factors listed above. The strength of authentication systems is largely determined by the number of factors incorporated by the system. Implementations that use two different factors are considered to be stronger than those that use only one factor; systems that incorporate all three factors are stronger than systems that only incorporate two of the factors. As discussed in [Section 4.1](#4-1), other types of information, such as location data or device identity, may be used by an RP or verifier to evaluate the risk in a claimed identity, but they are not considered authentication factors. -->
+<!-- Multi-factor authentication refers to the use of more than one of the factors listed above. The strength of authentication systems is largely determined by the number of factors incorporated by the system. Implementations that use two different factors are considered to be stronger than those that use only one factor; systems that incorporate all three factors are stronger than systems that only incorporate two of the factors. As discussed in [Section 5.1](#5-1), other types of information, such as location data or device identity, may be used by an RP or verifier to evaluate the risk in a claimed identity, but they are not considered authentication factors. -->
 
 Digital Authentication において, Claimant は CSP に登録された1つ以上の Authenticator を所有・管理し, 自身の Identity を証明する.
 Authenticator は Claimant が自身を正規の Subscriber であることを証明するための鍵を含み, Claimant はネットワーク越しに Authenticator を所有・管理していることを示すことで認証を行う.
@@ -190,31 +194,31 @@ Authenticator に含まれる鍵は公開鍵ペア (Asymmetric Keys) ないし�
 
 <!-- The secrets contained in authenticators are based on either public key pairs (asymmetric keys) or shared secrets (symmetric keys). A public key and a related private key comprise a public key pair. The private key is stored on the authenticator and is used by the claimant to prove possession and control of the authenticator. A verifier, knowing the claimant’s public key through some credential (typically a public key certificate), can use an authentication protocol to verify the claimant’s identity, by proving that the claimant has possession and control of the associated private key authenticator. -->
 
-Authenticator に共通鍵を保存する場合には, その共通鍵は Symmetric Key ないしは Password となる.
-(上述の Asymmetric Secret の例と異なり, Subscriber は共通鍵を認証者と共有する必要がある)
+Authenticator に共通鍵を保存する場合には, その共通鍵は Symmetric Key ないしは Memoized Secret (Password や PIN 等) となる.
+上述の Asymmetric Secret の例と異なり, Subscriber は共通鍵を認証者と共有する必要がある.
 Symmetric Key も Password もどちらも類似プロトコルで利用することができるが, 両者はそれらがどのように Subscriber と関連付けられるかという点で異なる.
 Symmetric Key は一般的には Subscriber が管理するハードウェアないしソフトウェア内に保存されるが, Password は Subscriber に記憶されることが想定される.
 多くのユーザーは記憶および入力を容易にするため短い Password を選ぶため, Password は Cryptographic Key よりも短い文字列となる.
 さらにいえば, システムは Symmetric Key をランダムに生成する一方, ユーザーは記憶できる Password を可能な文字列のごく小さなサブセット内から選択し, その多くが似た値となる傾向がある.
 したがって, Cryptographic Key がネットワーク越しの推測攻撃に対して強固な一方で, ユーザーが選択した Password は (特にその他の防御策がない場合) 脆弱になりやすい.
 
-<!-- Shared secrets stored on authenticators may be either symmetric keys or passwords (as opposed to the asymmetric secrets described above, which subscribers need not share with the authenticator). While both keys and passwords can be used in similar protocols, one important difference between the two is how they relate to the subscriber. While symmetric keys are generally stored in hardware or software that the subscriber controls, passwords are intended to be memorized by the subscriber. Since most users choose short passwords to facilitate memorization and ease of entry, passwords typically have fewer characters than cryptographic keys. Further, whereas systems choose keys at random, users attempting to choose memorable passwords will often select from a very small subset of the possible passwords of a given length, and many will choose very similar values. As such, whereas cryptographic keys are typically long enough to make network-based guessing attacks untenable, user-chosen passwords may be vulnerable—especially if no defenses are in place. -->
+<!-- Shared secrets stored on authenticators may be either symmetric keys or memorized secrets (e.g., passwords and PINs), as opposed to the asymmetric keys described above, which subscribers need not share with the authenticator. While both keys and passwords can be used in similar protocols, one important difference between the two is how they relate to the subscriber. While symmetric keys are generally stored in hardware or software that the subscriber controls, passwords are intended to be memorized by the subscriber. Since most users choose short passwords to facilitate memorization and ease of entry, passwords typically have fewer characters than cryptographic keys. Further, whereas systems choose keys at random, users attempting to choose memorable passwords will often select from a very small subset of the possible passwords of a given length, and many will choose very similar values. As such, whereas cryptographic keys are typically long enough to make network-based guessing attacks untenable, user-chosen passwords may be vulnerable—especially if no defenses are in place. -->
 
 本ドキュメントでは, Authenticator は常に鍵を含む.
 古典的認証要素の中には Digital Authentication に直接適用できないものもある.
 例えば ID バッジは Something You Have の一種であり対面認証時には有用であるが, Digital Authentication における Authenticator とはならない.
 Something You Know に分類される認証要素は必ずしも鍵である必要はなく, Knowledge Based Authentication では Claimant が公開されたデータソースを用いて確認できるような質問に答えることで認証を行うが, そういった認証要素も Digital Authentication で利用できる鍵とはならない.
 また一般的に Something You Are に属するものは鍵とはいえない.
-したがって本リコメンデーションでは Biometrics を Authenticator として利用することは許可しない.
+したがって本ガイドラインでは Biometrics を Authenticator として利用することは許可しない.
 
-<!-- In this document, authenticators always contain a secret. Some of the classic authentication factors do not apply directly to digital authentication. For example, an ID badge is something you have, and is useful when authenticating to a human (e.g., a guard), but is not a authenticator for digital authentication. Authentication factors classified as something you know are not necessarily secrets, either. Knowledge based authentication, where the claimant is prompted to answer questions that can be confirmed from public databases, also does not constitute an acceptable secret for digital authentication. More generally, something you are does not generally constitute a secret. Accordingly, this recommendation does not permit the use of biometrics as a authenticator. -->
+<!-- In this document, authenticators always contain a secret. Some of the classic authentication factors do not apply directly to digital authentication. For example, an ID badge is something you have, and is useful when authenticating to a human (e.g., a guard), but is not a authenticator for digital authentication. Authentication factors classified as something you know are not necessarily secrets, either. Knowledge based authentication, where the claimant is prompted to answer questions that can be confirmed from public databases, also does not constitute an acceptable secret for digital authentication. More generally, something you are does not generally constitute a secret. Accordingly, this guideline does not permit the use of biometrics as a authenticator. -->
 
-しかしながら本リコメンデーションでは, Authentication System が上記3要素すべてを用いて2要素のみを利用している場合よりセキュアなシステムを実現することを禁止はしない.
+しかしながら本ガイドラインでは, 上記3要素すべてを用いた Authentication System が2要素のみを利用している場合よりセキュアであるということは認める.
 複数要素を用いる Digital Authentication System は, 複数要素を Verifier に提示する形式か, Verifier に提示するための鍵を保護するためにいずれかの要素を用いる形式のいずれかを取りうる.
 複数要素を Verifier に提示する場合は, 各要素が Authenticator となり, それぞれが鍵を含むことになる.
 単一要素を Verifier に提示し, 追加要素を Authenticator 自体の保護に用いる場合には, 追加要素自体は Authenticator でなくてもよい.
 
-<!-- However, this recommendation does accept that authentication systems that incorporate all three factors offer better security than systems that only incorporate two of the factors. A digital authentication system may incorporate multiple factors in either of two ways. The system may be implemented so that multiple factors are presented to the verifier, or some factors may be used to protect a secret that will be presented to the verifier. If multiple factors are presented to the verifier, each will need to be a authenticator (and therefore contain a secret). If a single factor is presented to the verifier, the additional factors are used to protect the authenticator and need not themselves be authenticators. -->
+<!-- However, this guideline does recognize that authentication systems that incorporate all three factors offer better security than systems that only incorporate two of the factors. A digital authentication system may incorporate multiple factors in either of two ways. The system may be implemented so that multiple factors are presented to the verifier, or some factors may be used to protect a secret that will be presented to the verifier. If multiple factors are presented to the verifier, each will need to be a authenticator (and therefore contain a secret). If a single factor is presented to the verifier, the additional factors are used to protect the authenticator and need not themselves be authenticators. -->
 
 例えば Cryptographic Key を含んだハードウェア (Authenticator) を指紋認証により保護するなどの例が考えられる.
 Biometrics とともに利用する場合, Cryptographic Key の出力が Claimant の Authentication Process に用いられることとなる.
@@ -226,11 +230,11 @@ Biometrics とともに利用する場合, Cryptographic Key の出力が Claima
 上述のように, Biometrics は単一の認証要素として用いる場合には Digital Authentication で利用可能な鍵とはみなされないが, 特定の使い方をすれば本仕様の枠組みのなかで利用することもできる.
 Biometrics は, Verification の時点で物理的にその場にいた人間の Identity 検証に用いることができる, ユニークに個人を特定する属性である.
 顔認証, 指紋認証, 虹彩認証, 声紋認証などが Biometrics に含まれる.
-[Special Publication 800-63A, Enrollment and Identity Proofing](sp800-63a.ja.html) では, 登録プロセスにおける Biometrics の利用を推奨している.
+[Special Publication 800-63A](sp800-63a.ja.html) *Enrollment and Identity Proofing* では, 登録プロセスにおける Biometrics の利用を推奨している.
 登録時に Biometrics を利用することで, Subscriber による登録の否認を防止する一助となったり, 登録において詐欺行為を行った人物を特定したりすることもできるし, Authenticator を Unlock することもできる.
 これらにより各 Assurance Level を向上することもできる.
 
-<!-- As noted above, biometrics, when employed as a single factor of authentication, do not constitute acceptable secrets for digital authentication, but they do have their place in this specification. Biometric characteristics are unique personal attributes that can be used to verify the identity of a person who is physically present at the point of verification. They include facial features, fingerprints, iris patterns, voiceprints, and many other characteristics. [Special Publication 800-63A, Enrollment and Identity Proofing](sp800-63a.html) recommends that biometrics be used in the enrollment process for higher levels of assurance to later help prevent a subscriber who is registered from repudiating the enrollment, to help identify those who commit enrollment fraud, and to unlock authenticators. -->
+<!-- As noted above, biometrics, when employed as a single factor of authentication, do not constitute acceptable secrets for digital authentication, but they do have their place in this specification. Biometric characteristics are unique personal attributes that can be used to verify the identity of a person who is physically present at the point of verification. They include facial features, fingerprints, iris patterns, voiceprints, and many other characteristics. [Special Publication 800-63A](sp800-63a.html), *Enrollment and Identity Proofing* recommends that biometrics be used in the enrollment process for higher levels of assurance to later help prevent a subscriber who is registered from repudiating the enrollment, to help identify those who commit enrollment fraud, and to unlock authenticators. -->
 
 #### 4.3.2. Credentials
 
@@ -346,90 +350,3 @@ RP は Assertion に含まれる個人の属性や有効期限などの追加情
 RP は, IAL, AAL, FAL に関係なく, Verifier が提示した Assertion が RP のシステムアクセスに必要な基準を満たすかどうかを最終的に判断する.
 
 <!-- An RP relies on results of an authentication protocol to establish confidence in the identity or attributes of a subscriber for the purpose of conducting an online transaction. RPs may use a subscriber’s authenticated identity (pseudonymous or non-pseudonymous), the IAL, AAL and/or FAL (federation assurance level, indicating the strength of the assertion protocol), and other factors to make access control or authorization decisions. The verifier and the RP may be the same entity, or they may be separate entities. If they are separate entities, the RP normally receives an assertion from the verifier. The RP ensures that the assertion came from a verifier trusted by the RP. The RP also processes any additional information in the assertion, such as personal attributes or expiration times. The RP is the final arbiter concerning whether a specific assertion presented by a verifier meets the RP's established criteria for system access regardless of IAL, AAL, and/or FAL. -->
-
-### 4.5. Assurance Levels
-
-全体的な M-04-04 Level of Assurance (LOA) はアーキテクチャ構成要素個々の Assurance Level の組み合わせによって決定される.
-[Table 4-1](#63Sec4-Table1) は, 厳密に M-04-04 Level of Assurance を順守した場合の, 対応する Identity Assurance Level, Authenticator Assurance Level および Federation Assurance Level とのマッピングを示す.
-
-<!-- The M-04-04 Level of Assurance (LOA) is determined by combining the discrete assurance level for each of the components of the architecture. [Table 4-1](#63Sec4-Table1) shows strict adherence to M-04-04 Level of Assurance, mapping corresponding Identity, Authenticator, and Federation Assurance Levels. -->
-
-<a name="63Sec4-Table1"></a>
-
-<div class="text-center" markdown="1">
-
-**Table 4-1.  Legacy M-04-04 Requirements**
-
-</div>
-
-| M-04-04 Level of Assurance (LOA) | Identity Assurance Level (IAL)| Authenticator Assurance Level (AAL) | Federation Assurance Level (FAL)
-|:------------------:|:-----------------------------:|:------------------------:|:------------------------:|
-| 1 | 1 | 1| 1
-| 2 | 2 | 2 or 3 |2
-| 3 | 2 | 2 or 3 |2
-| 4 | 3 | 3 |4
-
-一方で, [Table 4-2](#63ES-Table2) は各機関のニーズに合わせて IAL, AAL, FAL のコンビネーションを決定することが許容された, M-04-04 Level of Assurance の新たな要件を示す.
-詳細は [SP 800-63A](sp800-63a.ja.html), [SP 800-63B](sp800-63b.ja.html), [SP 800-63C](sp800-63c.ja.html) を参照のこと.
-
-<!-- However, [Table 4-2](#63ES-Table2) shows the new requirements that are allowable for M-04-04 Level of Assurance, by combining IAL, AAL, and FAL based on agency need. Further details and normative requirements are provided in are provided in [SP 800-63A](sp800-63a.html), [SP 800-63B](sp800-63b.html), and [SP 800-63C](sp800-63c.html) respectively. -->
-
-<a name="63Sec4-Table2"></a>
-
-<div class="text-center" markdown="1">
-
-**Table 4-2.  Recommended M-04-04 Requirements**
-
-</div>
-
-| M-04-04 Level of Assurance (LOA) | Identity Assurance Level (IAL)| Authenticator Assurance Level (AAL) | Federation Assurance Level (FAL)
-|:------------------:|:-----------------------------:|:------------------------:|:------------------------:|
-| 1 | 1 | 1, 2 or 3 | 1, 2, 3, or 4
-| 2 | 1 or 2 | 2 or 3 |2, 3, or 4
-| 3 | 1 or 2 | 2 or 3 |2, 3, or 4
-| 4 | 1, 2, or 3 | 3 |3 or 4
-
-このマッピングでは, Identity 要素を Assurance Level と分離することができる.
-これにより, 個人の Identity の Identification が不要な場合であっても, Multi-Factor Authentication (MFA) を採用することができる.
-言い方を変えれば, より高い LOA を満たすにも, Identity Proofing が不要もしくはごくわずかで済むのである.
-例えば M-04-04 LOA 3 を満たすには, 以下の要件を満たせば良い.
-
-<!-- This mapping takes advantage of the ability to separate distinct identity elements per assurance level.  This allows an agency adopt multi-factor authentication (MFA) when identification of the individual identity is not required. Conversely, little or no identity proofing can be performed at the higher LOAs. For instance, to achieve M-04-04 LOA 3: -->
-
-* 登録および Identity Proofing プロセスが最低でも IAL1 ないし IAL2 を満たす.
-* Authenticator (もしくは Authenticator の組み合わせ) が AAL2 以上である.
-* Authentication Assertion を利用する場合は, それが FAL2 以上である.
-
-<!-- * The enrollment and identity proofing process would, at a minimum, use IAL 1 or 2 processes.
-* The authenticator (or combination of authenticators) would have an AAL of 2 or higher.
-* Authentication assertions (if used) would have an FAL of 2 or higher. -->
-
-ある LOA に対して許容される IAL は, 各機関のミッションを満たすためのニーズによって決定される.
-仮名でのサービス提供を行うには, 各機関はサービス提供のためのパーソナルデータ収集を限定すべきであり, 各 LOA において特定の IAL が要求されるべきではない.
-例えば "health tracker" アプリケーションを提供する場合などを考えてみよう.
-[Executive Order 13681](#EO13681) が要求する "...Digital Application を通じて市民にパーソナルデータへのアクセスを提供する機関は, 必要に応じて多要素認証と効果的な Identity Proofing プロセスを実施すること." という表現に従うと, 各機関は AAL2 Authenticator が必要な LOA3 を選ぶこともある.
-しかしながらこの例では, ユーザーの真の Identity を機関システムが把握する必要はないかもしれない.
-いままでは, データのセンシティブさから LOA3 が必要と評価された場合, 当該機関はユーザーの Identity Proofing を実施する必要があったが, これは今後不要となり, 各機関はこのようなケースでは Identity Proofing を行わず, Health Tracker システムのユーザーが IAL1 の仮名な状態でサービスを受けられるようにすることが推奨される.
-これにより, AAL2 や AAL3 を満たす MFA Authenticator を利用しても, その Authenticator は IAL1 の Identity と紐付いていることから, パーソナル情報が漏洩することもないだろう.
-
-<!-- Agency mission need will assist in determining the acceptable IAL at a given LOA.  Since agencies should limit the collection of personal data in order to provide services and allow for strong pseudonymity, a specific IAL is not explicitly required for each LOA. For example, an agency may establish a "health tracker" application.  In line with the terms of [Executive Order 13681](#EO13681) requiring "...that all agencies making personal data accessible to citizens through digital applications require the use of multiple factors of authentication and an effective identity proofing process, as appropriate.", the agency could select LOA3 such that an AAL2 authenticator is required.  However, in this example, there may be no need for the agency system to know the true identity of the user.  In the past, the LOA3 assessment of data sensitivity would also require the agency to identity proof the user.  This is no longer necessary and the agency is encouraged in this case to not perform any identity proofing and allow the user of the health tracker system to be pseudonymous at IAL1.  The MFA authenticator at AAL2 or AAL3 will not leak any personal information because it is bound to an IAL 1 identity. -->
-
-HSPD-12 および Personal Identity Verification (PIV) Smart Card が必要な連邦の従業員のケースでは, 機関は LOA4 を満たす必要がある.
-このケースでは AAL3 を満たす Authenticator と IAL3 を満たす Identity Proofing が必要となる.
-
-<!-- In the case of HSPD-12 and those federal employees that are required to obtain a Personal Identity Verification (PIV) smart card, the requirement is that agencies meet LOA4. This use case requires an authenticator at AAL3 **and** identity proofing at IAL 3. -->
-
->Important Note: 政府機関は上記表より高レベルの Assurance Level を受け入れてもよい.
-例えば, Federated トランザクションにおいて, 当該アプリケーションが IAL2 を要件とする場合であっても, 政府機関は IAL3 Identity を受け入れることもできる.
-これは Authenticator についても同様であり, RP は必要とされるレベルより高いレベルの Authenticator を利用することもできる.
-しかしながら RP は, 上記のようなシナリオが CSP が適切にプライバシーを保護している Federated シナリオにおいてのみ発生し, RP が要求した属性のみが提供され, Authenticator や Assertion からパーソナルインフォメーションが漏洩しないことを保証すること.
-詳細は [privacy requirements](./sp800-63c.ja.html#sec9) を参照のこと.
-
-<!-- >Important Note: An agency can accept a higher assurance level than those required in the table above.  For example, in a federated transaction, an agency can accept an IAL3 identity if their application is assessed at IAL2.  The same holds true for authenticators; stronger authenticators can be used at RP's that have lower authenticator requirements.  However, RPs will ensure that these scenarios only occur in federated scenarios with appropriate privacy protections by the CSP to ensure that only the requested attributes are provided to the RP and that no personal information leaks from the authenticator or the assertion.  See [privacy requirements](./sp800-63c.html#sec9) in SP 800-63C for more details. -->
-
-各機関はそれぞれの Assurance 要素を考慮するよう推奨されることから, LOA を決定する際の 'low watermark' の概念はもはや存在しない.
-IAL1 および AAL2 を満たすアプリケーションが IAL2 および AAL2 を満たすアプリケーションよりセキュアでないといった判断をすべきではない.
-そういったアプリケーションの違いは, 各アプリケーションのセキュリティには影響を与えない, 必要な Proofing の量のみである.
-ただし, もし機関が xAL を誤って決定してしまった場合には, セキュリティに影響を与える可能性は大いにある.
-
-<!-- As agencies are encouraged to consider each distinct element of assurance, the notion of the 'low watermark' to determine LOA no longer applies.  An IAL1/AAL2 application should not be considered any less secure than an IAL2/AAL application.  The only difference between these applications is the amount of proofing required, which does not impact security of each application. That said, if an agency incorrectly determines the xAL, security could very well be impacted. -->
