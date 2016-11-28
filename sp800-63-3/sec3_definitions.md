@@ -1,5 +1,7 @@
 <a name="sec3"></a>
 
+<div class="breaker"></div>
+
 ## 3. Definitions and Abbreviations
 
 There is a wide variety of terms used in the area of authentication. While the definitions of many terms are consistent with the earlier versions of SP 800-63, some have changed in this revision. Since there is no single, consistent definition of many of these terms, careful attention to how the terms are defined here is warranted.
@@ -62,7 +64,7 @@ In this document, biometrics may be used to unlock authenticators and prevent re
 A party whose identity is to be verified using one or more authentication protocols.
 
 #### Claimed Identity
-A declaration by the applicant of their current Personal Name, date of birth and address. [[GPG45]](#gpg45)
+A declaration of unvalidated and unverified personal attributes by the applicant.
 
 #### Credential
 An object or data structure that authoritatively binds an identity (via an identifier) (and optionally, additional attributes) to an authenticator possessed and controlled by a subscriber.

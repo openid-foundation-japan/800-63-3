@@ -1,3 +1,4 @@
+
 <div class="text-right" markdown="1">
 
 # <a name="800-63b"></a> DRAFT NIST Special Publication 800-63B
@@ -13,8 +14,14 @@ Ray A. Perlner
 Andrew R. Regenscheid    
 William E. Burr    
 Justin P. Richer  
+
+Privacy Authors:  
+
 Naomi B. Lefkovitz  
 Jamie M. Danker  
+
+Usability Authors:  
+
 Yee-Yin Choong      
 Kristen K. Greene      
 Mary F. Theofanos   
@@ -25,7 +32,7 @@ This publication is available free of charge from:
 http://dx.doi.org/10.6028/NIST.SP.XXX  
 
 {:/comment}
-  
+
 ![](sp800-63-3/media/csd.png)  
 ![](sp800-63-3/media/nist_logo.png)
 
@@ -63,19 +70,23 @@ Justin P. Richer
 *Bespoke Engineering  
 Billerica, MA*  
 
+Privacy Authors:  
+
 Naomi B. Lefkovitz  
 *Applied Cybersecurity Division  
-Information Technology Laboratory*  
+Information Technology Laboratory*    
 
 Jamie M. Danker  
 *National Protection and Programs Directorate  
-Department of Homeland Security*  
+Department of Homeland Security*    
 
-Yee-Yin Choong      
-Kristen K. Greene      
-Mary F. Theofanos   
+Usability Authors:    
+
+Yee-Yin Choong  
+Kristen K. Greene  
+Mary F. Theofanos  
 *Information Access Division  
-Information Technology Laboratory*
+Information Technology Laboratory*  
 
 {::comment}
 
@@ -166,7 +177,7 @@ authentication; credential service provider; digital authentication; digital cre
 
 ### Acknowledgements
 
-The authors would like to acknowledge the thought leadership and innovation of the original authors: Donna F. Dodson, W. Timothy Polk, Sarbari Gupta, and Emad A. Nabbus.  Without their tireless efforts, we would not have had the incredible baseline from which to evolve 800-63 to the document it is today.
+The authors would like to acknowledge the thought leadership and innovation of the original authors: Donna F. Dodson, W. Timothy Polk, Sarbari Gupta, and Emad A. Nabbus.  Without their tireless efforts, we would not have had the incredible baseline from which to evolve 800-63 to the document it is today. In addition, special thanks to the Federal Privacy Council's Digital Authentication Task Force for the contributions to the development of privacy requirements and considerations.
 
 ### Audience
 
@@ -196,21 +207,6 @@ The terms “CAN” and “CANNOT” indicate a possibility and capability, whet
 
 </div>
 
-## Executive Summary
-
-Digital authentication is the process of establishing confidence in user identities electronically presented to an information system. The robustness of this confidence is described by categorization known as the Authenticator Assurance Level (AAL). The separation of AAL from Identity Assurance Level (IAL), described in SP 800-63A, better supports applications requiring strong authentication that may be pseudonomymous. The separation of authenticator issuance from the establishment of credentials binding those authenticators to individuals provides additional flexibility in the enrollment and identity proofing process.
-
-This guideline addresses how an individual, known as a claimant, can securely authenticate to a Credential Service Provider to establish the context for a remote digital interaction.
-
-The three AALs reflect the options agencies will select based on their risk profile and the potential harm caused by an invalid or fraudulent user accessing their systems. The AALs are as follows:
-
-**Authenticator Assurance Level 1** - AAL 1 provides some assurance that the claimant controls the authenticator registered to a subscriber. AAL 1 uses single-factor authentication using a wide range of available authentication technologies. Successful authentication requires that the claimant prove through a secure authentication protocol that he or she possesses and controls the authenticator.
-
-**Authenticator Assurance Level 2** – AAL 2 provides high confidence that the claimant controls the authenticator registered to a subscriber. Two different authentication factors are required. Approved cryptographic techniques are required at AAL 2 and above.
-
-**Authenticator Assurance Level 3** – AAL 3 provides very high confidence that the claimant controls the authenticator registered to a subscriber. Authentication at AAL 3 is based on proof of possession of a key through a cryptographic protocol. AAL 3 is similar to AAL 2 except that a "hard" cryptographic authenticator that also provides impersonation resistance is required.
-
-
 ## Table of Contents
 
 [1. Purpose](#sec1)
@@ -236,4 +232,3 @@ The three AALs reflect the options agencies will select based on their risk prof
 [11. References](#references)
 
 [Appendix A. Strength of Memorized Secrets](#appA)
-

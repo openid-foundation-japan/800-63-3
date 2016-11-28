@@ -21,4 +21,6 @@ This document is broken up into sections as follows:
 
 [4. E-Authentication Model](sec4_model.html)
 
-[5. References](sec5_references.html)
+[5. A New Approach to LOA ](sec5_xAL.html)
+
+[6. References](sec6_references.html)

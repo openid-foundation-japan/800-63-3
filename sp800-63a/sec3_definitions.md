@@ -1,6 +1,10 @@
 <a name="sec3"></a>
 
+<div class="breaker"></div>
+
 # 3. Definitions and Abbreviations
+
+_This section is informative._
 
 There is a wide variety of terms used in the area of authentication. While the definitions of many terms are consistent with earlier versions of SP 800-63, some have changed in this revision. Since there is no single, consistent definition of many of these terms, careful attention to how the terms are defined here is warranted.
 
@@ -60,6 +64,9 @@ A party whose identity is to be verified using one or more authentication protoc
 The physical location asserted by an individual (e.g. an applicant) where he/she can be reached. It includes the residential street address of an individual and may also include the mailing address of the individual.
 
 For example, a person with a foreign passport, living in the U.S., will need to give an address when going through the identity proofing process. This address would not be an “address of record” but a “claimed address.”
+
+#### Claimed Identity
+A declaration of unvalidated and unverified personal attributes by the applicant.
 
 #### Credential
 An object or data structure that authoritatively binds an identity (and optionally, additional attributes) to an authenticator possessed and controlled by a subscriber.

@@ -1,6 +1,10 @@
 <a name="sec8"></a>
 
+<div class="breaker"></div>
+
 ## <a name="privacy-section-header"></a> 8. Privacy Considerations
+
+_This section is informative._
 
 These privacy considerations provide information regarding the General Requirements set forth in Section 4.2.
 

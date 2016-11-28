@@ -1,5 +1,7 @@
 <a name="references"></a>
 
+<div class="breaker"></div>
+
 # 10. References
 
 <a name="gpg45"></a>[GPG 45] UK Cabinet Office, Good Practice Guide 45, *Identity proofing and verification of an individual* (November 3, 2014), available at: <https://www.gov.uk/government/publications/identity-proofing-and-verification-of-an-individual>.
@@ -15,6 +17,6 @@
 <a name="fbcacp"></a>[FBCACP] X.509 Certificate Policy
 For The Federal Bridge Certification Authority (FBCA), Version 2.27 (December 2, 2013), available at: <https://www.idmanagement.gov/IDM/servlet/fileField?entityId=ka0t0000000TN7cAAG&field=File__Body__s>.
 
-<a name="fbcasup"></a>[FBCASUP] FBCA Supplementary Antecedent, In-Person Definition (July 16, 2009), available at: https://www.idmanagement.gov/IDM/servlet/fileField?entityId=ka0t0000000TNPgAAO&field=File__Body__s.
+<a name="fbcasup"></a>[FBCASUP] FBCA Supplementary Antecedent, In-Person Definition (July 16, 2009), available at: <https://www.idmanagement.gov/IDM/servlet/fileField?entityId=ka0t0000000TNPgAAO&field=File__Body__s>.
 
-<a name-"A-130"></a>[A-130] OMB Circular A-130, *Managing Federal Information as a Strategic Resource* (July 28, 2016), available at: <https://www.whitehouse.gov/omb/circulars_default>
+<a name="A-130"></a>[A-130] OMB Circular A-130, *Managing Federal Information as a Strategic Resource* (July 28, 2016), available at: <https://www.whitehouse.gov/omb/circulars_default>
