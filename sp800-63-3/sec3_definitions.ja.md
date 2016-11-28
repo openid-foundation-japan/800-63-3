@@ -1,5 +1,7 @@
 <a name="sec3"></a>
 
+<div class="breaker"></div>
+
 ## 3. Definitions and Abbreviations
 
 Authentication 分野で使われる用語は幅広く, 多くの用語は SP 800-63 との整合性を保っているものの, いくつかは本リビジョンから定義が変更になっている.
@@ -131,9 +133,9 @@ Authenticator に内含される鍵.
 
 #### Claimed Identity
 
-Applicant により申告された現在の Personal Name, 誕生日, 住所. ([[GPG45]](#gpg45))
+Applicant により申告された Unvalidated かつ Unverified な Personal Attributes.
 
-<!-- A declaration by the applicant of their current Personal Name, date of birth and address. [[GPG45]](#gpg45) -->
+<!-- A declaration of unvalidated and unverified personal attributes by the applicant. -->
 
 #### Credential
 
