@@ -1,6 +1,10 @@
 <a name="sec1"></a>
 
+<div class="breaker"></div>
+
 ## 1. <a name="purpose"></a>Purpose
+
+_Sections 1 - 5 are informative._
 
 本リコメンデーションおよび SP 800-63A, SP 800-63B, SP 800-63C は, 政府機関に対して Digital Authentication の実装に際した技術的なガイドラインを提示する.
 
@@ -56,17 +60,17 @@ SP 800-63 は以下のドキュメント群からなる.
 
 <!-- SP 800-63 is organized as a suite of documents as follows: -->
 
-- SP 800-63A *Enrollment and Identity Proofing* - Credential, および Credential に関連付けられた Authenticator を, 特定の個人に紐付けるプロセスを扱う. このプロセスは一般的に Identity システムに個人が登録される際に, Identity Proofing プロセスを通じて行われる.
+- SP 800-63-3 *Digital Authentication Guideline* - 一般的な Authentication Framework, および情報システムにおける Authenticator, Credential, Assertion の利用について概観し, 各 Assurance Level の選択方法について述べる. _This document is informative._
+<!-- - SP 800-63-3 *Digital Authentication Guideline* - Provides an overview of general authentication frameworks, for using authenticators, credentials, and assertions together in an information system, and possible methods of selecting discrete assurance levels. _This document is informative._ -->
 
-<!-- - SP 800-63A *Enrollment and Identity Proofing* - Deals with the processes by which a credential, and authenticator(s) associated with that credential can be bound to a specific individual. This typically happens when that individual is enrolled in an identity system, through the identity proofing process. -->
+- SP 800-63A *Enrollment and Identity Proofing* - 個人に対する Identity Proofing をおこない, 当該個人を Identity System に登録する一連のプロセスに関するガイドラインを提供する. _This document contains both normative and informative material._
+<!-- - SP 800-63A *Enrollment and Identity Proofing* - Provides guidelines on processes by which an individual is enrolled in an identity system and identity proofed. _This document contains both normative and informative material._ -->
 
-- SP 800-63B *Authentication and Lifecycle Management* - 情報システムに対して Remote の Subscriber を特定の Authenticator Assurance Level で認証する際の, Authenticator (以前は *token* と呼ばれていた) の選択, 利用, 管理に関するガイドラインを提供する.
+- SP 800-63B *Authentication and Lifecycle Management* - Remote Subscriber を特定の Authenticator Assurance Level で認証する際の, (以前は *token* と呼ばれていた) Authenticator の選択, 利用, 管理についてのガイドラインを提供する.　_This document contains both normative and informative material._
+<!-- - SP 800-63B *Authentication and Lifecycle Management* - Provides guidelines on the selection, use, and management of authenticators (formerly called *tokens*) to authenticate a remote subscriber to an identity system at specified authenticator assurance levels. _This document contains both normative and informative material._ -->
 
-<!-- - SP 800-63B *Authentication and Lifecycle Management* - provides guidelines on the selection, use, and management of authenticators (formerly called *tokens*) to authenticate a remote subscriber to an identity system at specified authenticator assurance levels. -->
-
-- SP 800-63C *Federation and Assertions* - Authentication Process の結果を Relying Party に伝搬する際の Assertion の利用に関するガイドラインを提供する.
-
-<!-- - SP 800-63C *Federation and Assertions* - Provides guidelines on the use of assertions to convey the results of authentication processes to a relying party. -->
+- SP 800-63C *Federation and Assertions* - Federated Identity, および認証結果の Relying Party への伝搬に用いる Assertion の利用についてのガイドラインを提供する. _This document contains both normative and informative material._
+<!-- - SP 800-63C *Federation and Assertions* - Provides guidelines on the use of federated identity and assertions to convey the results of authentication processes to a relying party. _This document contains both normative and informative material._ -->
 
 SP 800-63A, SP 800-63B, SP 800-63C は今後非同期に改定されることが予想されるが, 各々の最新リビジョンを用いることとする.
 
@@ -136,7 +140,7 @@ their authentication assurance requirements: -->
 また本ドキュメント群の他のドキュメントは, 下記のようなエリアに関する Identity Assurance および Authenticator Assurance 固有の技術要件に関して言及している.
 
 <!-- This suite of documents provides guidelines for implementing the third step of the
-above process. In particular, this document maps the four (4) Levels of Assurance defined in OMB M-04-04 into corresponding authenticator assurance and identity assurance levels. Other documents in the suite state specific technical
+above process. In particular, this document maps the four Levels of Assurance defined in OMB M-04-04 into corresponding authenticator assurance and identity assurance levels. Other documents in the suite state specific technical
 requirements for identity assurance and authenticator assurance in the following
 areas: -->
 
@@ -175,14 +179,14 @@ M-04-04 Level of Assurance は, 上記の各要素に対して達成された Id
 設定された Level of Assurance の範囲内で, 各機関は追加のリスク緩和策と補完コントロール (補完統制) を行ってもよい.
 Credential Assurance Level を緩和することで, サービス利用可能顧客を増やすこともできる.
 ただしその場合でも, 各機関はシステムに設定した Assurance Level が意図しているセキュリティおよびプライバシーレベルを保証すること.
-また, センシティブな情報を扱わない機能に関しては低い Level of Authentication および Level of Attribute Assurance を許容しつつ, センシティブな情報を扱う時にはより高い Level of Assurance を要求するといったように, Digital Authentication を行うアプリケーションを機能ごとに分割することもできる.
+また, センシティブな情報を扱わない機能に関しては低い Level of Authentication Assurance および Level of Identity Assurance を許容しつつ, センシティブな情報を扱う時にはより高い Level of Assurance を要求するといったように, Digital Authentication を行うアプリケーションを機能ごとに分割することもできる.
 
 <!-- Within a given level of assurance, agencies may employ additional risk mitigation measures and compensating controls. Easing credential assurance level requirements may result in benefits such as
 increasing the size of the enabled customer pool, but agencies shall
-ensure mitigations and compensating controls do not degrade the intended security and privacy of the selected assurance levels. Alternatively, agencies may consider partitioning the
+ensure that mitigations and compensating controls do not degrade the intended security and privacy of the selected assurance levels. Alternatively, agencies may consider partitioning the
 functionality of a digital authentication enabled application to allow less
 sensitive functions to be available at a lower level of authentication
-and attribute assurance, while more sensitive functions are available
+and identity assurance, while more sensitive functions are available
 only at a higher level of assurance. -->
 
 これらの技術ガイドラインはネットワーク経由の IT システムに対する Remote Digital Authentication をカバーしているが, 対面による認証に関しては言及しない.
@@ -205,19 +209,19 @@ and authenticators to machines and servers when they are used in
 authentication protocols with people. -->
 
 本ドキュメント群の枠組みにおいては, 個人を登録し, Authenticator を発行し, 個人の Identity を Authenticator に紐付けることで Registration プロセスを実施することになる.
+より高い Identity Assurance Level では, より強固な Registration 手続きが要求される.
 その後個人は Authentication Protocol に基づいて Authenticator を用いてシステムやアプリケーションに対してネットワーク経由でリモート認証を行う.
 この Authentication Protocol は, Authenticator Secret が様々な種類の攻撃から守られた状態で, 当該本人が Authenticator を所持および管理していることを Verifier に提示できるようなものである.
 より高い Authenticator Assurance Level では, より強固な Authentication Mechanism, より良い Protocol, より高度な Authenticator および関連する鍵の保護策が必要となる.
-より高い Identity Assurance Level では, より強固な Registration 手続きが要求される.
 
-<!-- The paradigm of this document suite is that individuals are enrolled, issued an authenticator, and
-undergo a registration process in which their identity is bound to that authenticator. Thereafter, the individuals are remotely authenticated to systems
-and applications over a network, using the authenticator in an authentication
+<!-- The paradigm of this document suite is that individuals are enrolled, issued one or more authenticators, and
+undergo a registration process in which their identity is bound to the authenticator(s). Higher identity assurance levels require stronger registration procedures. Thereafter, the individuals are remotely authenticated to systems
+and applications over a network, using the authenticator(s) in an authentication
 protocol. The authentication protocol allows an individual to
 demonstrate to a verifier that he or she has possession and control of
-the authenticator, in a manner that protects the authenticator secret from
+the authenticator(s), in a manner that protects the authenticator secrets from
 compromise by different kinds of attacks. Higher authenticator assurance levels require use of stronger authentication mechanisms, better protocols, and better protection of
-the authenticator(s) and related secrets from attacks. Higher identity assurance levels require stronger registration procedures. -->
+the authenticator(s) and related secrets from attacks. -->
 
 本ドキュメント群は, 認可を受けていない主体にはアクセスできないような鍵を含み, 簡単には偽造できないような Authenticator にフォーカスしている.
 また本ドキュメント群が対象としている以外のコンテキストでは, この Authenticator を利用しないことが望ましい.
@@ -226,12 +230,12 @@ Biometrics Authentication は人間の特徴を利用するものであり, そ�
 また, そういった Authenticator は, Biometrics が強固に紐づけられ, 許容される連続アクティベーション失敗回数が制限されており, それを超えるとその他のアクティベーション要素や Authenticator が必要となるものとする.
 本ドキュメント群は, 登録の否認防止, および登録プロセスの全フェーズにおいて同一人物が関与していることの検証の目的でも, Biometrics の利用をサポートする.
 
-<!-- This document suite focuses on authenticators that are difficult to forge because they contain some type of secret information that is not available to unauthorized parties and that is preferably not used in unrelated contexts. Biometric authentication uses human characteristics that in some cases may be available to an attacker. Accordingly, the use of biometrics for authentication is limited to activation of a specific physical authenticator to which it is strongly bound, and the number of consecutive activation failures is limited, beyond which another activation factor or authenticator is required. This document suite also supports the use of biometrics to prevent repudiation of registration, and to verify that the same individual participates in all phases of the registration process. -->
+<!-- This document suite focuses on authenticators that are difficult to forge because they contain some type of secret information that is not available to unauthorized parties and that is preferably not used in unrelated contexts. Biometric authentication uses human characteristics that, in some cases, may be available to an attacker. Accordingly, the use of biometrics for authentication is limited to activation of a specific physical authenticator to which it is strongly bound, and the number of consecutive activation failures is limited, beyond which another activation factor or authenticator is required. This document suite also supports the use of biometrics to prevent repudiation of registration, and to verify that the same individual participates in all phases of the registration process. -->
 
 Knowledge Based Authentication では, パブリックなデータベースに対して当該個人の知識をチェックすることになる.
 この情報はプライベートであると考えられるが, 実際には秘匿情報ではなく, 当該個人の Identity に関する確証を得ることは困難たりうる.
 また Knowledge Based Authentication システムの複雑さと相互依存性は定量化が困難である.
-しかしながら Knowledge Based Verification の技術は本ドキュメント群の Registration の一部として含まれている.
+しかしながら Knowledge Based Verification の技術は SP 800-63A の Registration の一部として含まれている.
 
 <!-- Knowledge based authentication achieves authentication by testing the
 personal knowledge of the individual against information obtained from
@@ -240,13 +244,13 @@ actually secret, confidence in the identity of an individual can be hard
 to achieve. In addition, the complexity and interdependencies of
 knowledge based authentication systems are difficult to quantify.
 However, knowledge based verification techniques are included as part
-of registration in this document suite. -->
+of registration in SP 800-63A. -->
 
 本ドキュメント群は Remote Authentication のための最低限の技術要件を特定するものである.
 各機関はそれぞれのリスク分析に基づいて特定コンテキストにおいて適切な追加対策を行ってもよい.
 特にプライバシー要件とリーガルリスクは, 各機関が Authentication やその他のプロセスにおける追加の保護策の採用を決める要因となりうる.
-Digital Authentication のプロセスおよびシステムを構築するにあたって, 各機関は *OMB Guidance for Implementing the Privacy Provisions of the E-Government Act of 2002* \[[OMB M-03-22](#M-03-22)\] を参照すべきである.
-*Guide to Federal Agencies on Implementing Electronic Processes* \[[DOJ 2000](#DOJ2000)\] は, *Use of Electronic Signatures in Federal Organization Transactions* \[[GSA ESIG](#GSAESIG)\] と同様に, リーガルリスクに関する追加情報として, 特に Legal Standards of Proof を満たし否認を防止するのに必要な要件を提供する.
+Digital Authentication のプロセスおよびシステムを構築するにあたって, 各機関は *OMB Guidance for Implementing the Privacy Provisions of the E-Government Act of 2002* [[M-03-22]](#M-03-22) を参照すべきである.
+*Guide to Federal Agencies on Implementing Electronic Processes* [[DOJ 2000]](#DOJ2000) は, *Use of Electronic Signatures in Federal Organization Transactions* [[ESIG]](#ESIG) と同様に, リーガルリスクに関する追加情報として, 特に Legal Standards of Proof を満たし否認を防止するのに必要な要件を提供する.
 
 <!-- This document suite identifies minimum technical requirements for remotely
 authenticating users. Agencies may determine based on their risk
@@ -255,13 +259,12 @@ In particular, privacy requirements and legal risks may lead agencies to
 determine that additional authentication measures or other process
 safeguards are appropriate. When developing digital authentication processes
 and systems, agencies should consult *OMB Guidance for Implementing the
-Privacy Provisions of the E-Government Act of 2002* \[[OMB
-M-03-22](#M-03-22)\]. See the *Guide to Federal Agencies on
-Implementing Electronic Processes* \[[DOJ 2000](#DOJ2000)\] for
+Privacy Provisions of the E-Government Act of 2002* [[M-03-22]](#M-03-22). See the *Guide to Federal Agencies on
+Implementing Electronic Processes* [[DOJ 2000]](#DOJ2000) for
 additional information on legal risks, especially those that are related
 to the need to satisfy legal standards of proof and prevent repudiation,
 as well as *Use of Electronic Signatures in Federal Organization
-Transactions* \[[GSA ESIG](#GSAESIG)\]. -->
+Transactions* [[ESIG]](#ESIG). -->
 
 さらに, 本ガイドラインを実装する連邦政府機関は, Title III of the E-Government Act (*Federal Information Security Management Act* \[[FISMA](#FISMA)\]), および関連する NIST 標準 & ガイドラインの要件に準拠すべきである.
 FISMA は, 各政府機関に対して, 当該機関のオペレーションおよびアセットを支える情報および情報システムにおける情報セキュリティを確保する機関全体を通したプログラムの開発, 記録, 実装を要求する.
@@ -271,7 +274,7 @@ Digital Authentication をサポートする IT システムにおける Securit
 <!-- Additionally, Federal agencies implementing these guidelines should
 adhere to the requirements of Title III of the E-Government Act,
 entitled the *Federal Information Security Management Act*
-\[[FISMA](#FISMA)\], and the related NIST standards and guidelines.
+\[[FISMA](#FISMA)\], and related NIST standards and guidelines.
 FISMA directs Federal agencies to develop, document, and implement
 agency-wide programs to provide information security for the information
 and information systems that support the operations and assets of the
@@ -291,7 +294,7 @@ operations of their digital systems. -->
 CSP が Identity Federation をサポートする場合には, [SP 800-63C](sp800-63c.ja.html) もその要件となる.
 なお, Standaline の CSP よりも Identity Federation をサポートする CSP が好まれることを注記しておく.
 
-<!-- The business model, marketplace, and the composition of the way identity services are delivered has drastically changed since initial versions of Special Publication 800-63 were released.  Notably, CSPs can be componentized and composed of multiple independently operated and owned business entities.  In addition, there is a significant benefit to provide strong authenticators even if no identity proofing is required.  Therefore, a suite of special publications under the 800-63 moniker has been created to facilitate these new models and make it easy to access the specific requirements for the function an entity may serve under the overall digital authentication model.  Each document stands alone.  However, it is expected that all CSPs, even componentized, will be required to meet the guidelines in [SP 800-63A](sp800-63a.html) and [SP 800-63B](sp800-63b.html).  If the CSP also participates in an identity federation, which is preferred over a standalone CSP, meeting the requirements of [SP 800-63C](sp800-63c.html) will apply. -->
+<!-- The business model, marketplace, and the composition of the way identity services are delivered has drastically changed since initial versions of Special Publication 800-63 were released.  Notably, CSPs can be componentized and composed of multiple independently operated and owned business entities.  In addition, there is a significant benefit to the use of strong authenticators even if no identity proofing is required.  Therefore, a suite of special publications under the 800-63 moniker has been created to facilitate these new models and make it easy to access the specific requirements for the function an entity may serve under the overall digital authentication model.  Each document stands alone.  However, it is expected that all CSPs, even componentized, will be required to meet the guidelines in [SP 800-63A](sp800-63a.html) and [SP 800-63B](sp800-63b.html).  If the CSP also participates in an identity federation, which is preferred over use of a standalone CSP, meeting the requirements of [SP 800-63C](sp800-63c.html) also applies. -->
 
 ### 2.2. Relationship to Other Standards and Guidelines
 
@@ -302,7 +305,7 @@ CSP が Identity Federation をサポートする場合には, [SP 800-63C](sp80
 [Table 2-1](#63Sec2-Table1) は多くの国家的・国際的な Assurance ドキュメントとの代表的なマッピングを示している.
 IAL および AAL と国家的・国際的な様々な標準との間の直接的な相関があるわけでは無いが, 本ドキュメントはそういった標準が明示する基準を満たすものとなろう.
 
-<!-- This document has been written to satisfy the needs of federal agencies. However, with the expansion of citizen services throughout the world that require identity and authentication assurance, as well as an increasing number of use cases that promote international identity federation and interoperability, this guideline is intended to achieve alignment to national and international standards that describe levels of identity assurance. [Table 2-1](#63Sec2-Table1) provides a representative snapshot of mappings to various international and national assurance documents. This is not meant to imply that there is direct correlation between the IALs and AALs in this document and the levels in those standards, but that it is seen that this document fulfils the criteria as demonstrated in those standards. -->
+<!-- This document has been written to satisfy the needs of federal agencies. However, with the expansion of citizen services throughout the world that require identity and authentication assurance, as well as an increasing number of use cases that promote international identity federation and interoperability, this guideline is intended to achieve alignment to national and international standards that describe levels of identity assurance. [Table 2-1](#63Sec2-Table1) provides a representative snapshot of mappings to various international and national assurance documents. This is not meant to imply that there is direct correlation between the IALs and AALs in this document and the levels in those standards, but that it is seen that this document fulfills the criteria as demonstrated in those standards. -->
 
 <a name="63Sec2-Table1"></a>
 
@@ -312,7 +315,7 @@ IAL および AAL と国家的・国際的な様々な標準との間の直接�
 
 </div>
 
-SP 800-63|[[GPG 45]](#GPG45)|[[RSDOPS]](#RSDOPS)|STORK 2.0|29115:2011|ISO 29003|Government of Canada
+SP 800-63|[[GPG 45]](#GPG45)|[[RSDOPS]](#RSDOPS)|[[STORK 2.0]](#STORK2.0)|[[ISO 29115]](#ISO29115)|[[ISO 29003]](#ISO29003)|[[Canada]](#Canada)
 :---------:|:----:|:----:|:-------:|:--------:|:-------:|:------------------:
 N/A|N/A|Level 01|N/A|N/A|N/A|N/A
 AAL/IAL 1|Level 1|Level 1|QAA Level 1|LoA 1|LoA 1|IAL/CAL 1
