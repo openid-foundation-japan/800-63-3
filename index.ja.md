@@ -26,7 +26,9 @@ Special Publication 800-63-3 draft の Public Preview 期間中に Contribute �
 Source information, current standards, and public comments received through May 2015 can be found [here](http://csrc.nist.gov/groups/ST/eauthentication/sp800-63-2_call-comments.html).
 
 
-**NOTE: この翻訳は2016年11月段階の SP 800-63-3 Draft 版を元に作成されています。Final 版の翻訳はこちらの [OpenID BizDay #11 のサイト](https://www.jipdec.or.jp/topics/event/20171013.html) より PDF 版をご覧ください。**
+**NOTE:**  
+**この翻訳は2016年11月段階の SP 800-63-3 Draft 版を元に作成されています。**  
+**Final 版の翻訳はこちらの [OpenID BizDay #11 のサイト](https://www.jipdec.or.jp/topics/event/20171013.html) より PDF 版をご覧ください。**
 
 
 <ul class="audiences">
