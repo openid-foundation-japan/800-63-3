@@ -28,7 +28,7 @@ Source information, current standards, and public comments received through May 
 
 **NOTE:**  
 **この翻訳は2016年11月段階の SP 800-63-3 Draft 版を元に作成されています。**  
-**Final 版の翻訳はこちらの [OpenID BizDay #11 のサイト](https://www.jipdec.or.jp/topics/event/20171013.html) より PDF 版をご覧ください。**
+**[Final 版の翻訳はこちら](/800-63-3-final/index.ja.html) をご覧ください。**
 
 
 <ul class="audiences">
