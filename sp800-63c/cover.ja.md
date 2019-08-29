@@ -1,5 +1,9 @@
 <div class="text-right" markdown="1">
 
+**NOTE:**  
+**この翻訳は2016年11月段階の SP 800-63-3 Draft 版を元に作成されています。**  
+**[Final 版の翻訳はこちら](/800-63-3-final/index.ja.html) をご覧ください。**
+
 # <a name="800-63c"></a> DRAFT NIST Special Publication 800-63C
 
 # Digital Authentication Guideline (翻訳版)
